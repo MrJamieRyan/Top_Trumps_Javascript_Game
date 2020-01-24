@@ -17,6 +17,12 @@ export default {
       eventBus.$emit('property-selected', [this.cards[0], property] )
       this.cards.shift()
     }
+  },
+  mounted(){
+    eventBus.$on('player-one-wins', (payload) => {
+      this.cards.push(payload[0])
+      this.cards.push(payload[1])
+    })
   }
 }
 </script>

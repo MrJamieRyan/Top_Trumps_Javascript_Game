@@ -37,9 +37,14 @@ export default {
       this.playerOneSelectedCard = payload[0]
       this.playerTwoSelectedCard = payload[2]
       this.selectedProperty = payload[1]
+      console.log('one', this.playerOneSelectedCard[this.selectedProperty])
+      console.log('two', this.playerTwoSelectedCard[this.selectedProperty])
       if(this.playerOneSelectedCard[this.selectedProperty] > this.playerTwoSelectedCard[this.selectedProperty]){
-        console.log('here')
         eventBus.$emit('player-one-wins', [this.playerOneSelectedCard, this.playerTwoSelectedCard])
+      }
+      else
+      {
+        eventBus.$emit('player-two-wins', [this.playerOneSelectedCard, this.playerTwoSelectedCard])
       }
     } )
   },

@@ -1,9 +1,7 @@
 <template>
   <div>
-    <!-- <p>Name: {{cards[1].individual}}</p>
-    <p>Size: {{cards[0].size}}</p>
-    <p>Rarity: {{cards[0].rarity}}</p>
-    <p>Temper: {{cards[0].temper}}</p> -->
+    <p>player two</p>
+    <p v-on:click="handleClick(key)" v-for="(value, key) in cards[0]"> {{key}}: {{value}} </p>
   </div>
 </template>
 
@@ -14,11 +12,22 @@ export default {
   props: ['cards'],
   mounted(){
 
-    eventBus.$on('property-selected', (payload) => {
+    eventBus.$on('playerone-property-selected', (payload) => {
       payload[2] = this.cards[0]
       eventBus.$emit('both-cards-sent', payload)
       this.cards.shift()
     })
+
+    eventBus.$on('player-two-wins', (payload) => {
+      this.cards.push(payload[0])
+      this.cards.push(payload[1])
+    })
+  },
+  methods: {
+    handleClick(property){
+      eventBus.$emit('playertwo-property-selected', [this.cards[0], property] )
+      this.cards.shift()
+    }
   }
 }
 </script>

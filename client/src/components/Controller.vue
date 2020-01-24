@@ -1,6 +1,7 @@
 <template>
 <div>
- <p>{{cards}}</p>
+  <player-one :cards="playerOneCards"/>
+  <player-two :cards="playerTwoCards"/>
 </div>
 </template>
 

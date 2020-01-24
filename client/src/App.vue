@@ -1,5 +1,5 @@
 <template>
-  <controller :cards="cards" /> 
+  <controller :cards="cards" />
 </template>
 
 <script>
@@ -15,211 +15,211 @@ export default {
       cards:
       [
   {
-     Individual:"Abyssinian",
-    Size:2,
-    Rarity:4,
-    Temper:2
-   
+     individual:"Abyssinian",
+    size:2,
+    rarity:4,
+    temper:2
+
   },
   {
-     Individual:"American Bobtail",
-    Size:4,
-    Rarity:6,
-    Temper:4
-   
+     individual:"American Bobtail",
+    size:4,
+    rarity:6,
+    temper:4
+
   },
   {
-     Individual:"American Curl",
-    Size:2,
-    Rarity:7,
-    Temper:5
-   
+     individual:"American Curl",
+    size:2,
+    rarity:7,
+    temper:5
+
   },
   {
-     Individual:"Balinese (aka Javanese)",
-    Size:3,
-    Rarity:8,
-    Temper:4
-   
+     individual:"Balinese (aka Javanese)",
+    size:3,
+    rarity:8,
+    temper:4
+
   },
   {
-     Individual:"Bengal",
-    Size:4,
-    Rarity:1,
-    Temper:3
-   
+     individual:"Bengal",
+    size:4,
+    rarity:1,
+    temper:3
+
   },
   {
-     Individual:"Bombay",
-    Size:3,
-    Rarity:2,
-    Temper:5
-   
+     individual:"Bombay",
+    size:3,
+    rarity:2,
+    temper:5
+
   },
   {
-     Individual:"British Shorthair",
-    Size:4,
-    Rarity:1,
-    Temper:4
-   
+     individual:"British Shorthair",
+    size:4,
+    rarity:1,
+    temper:4
+
   },
   {
-     Individual:"Devon Rex",
-    Size:2,
-    Rarity:7,
-    Temper:5
+     individual:"Devon Rex",
+    size:2,
+    rarity:7,
+    temper:5
   },
   {
-     Individual:"Egyptian Mau",
-    Size:3,
-    Rarity:7,
-    Temper:2
+     individual:"Egyptian Mau",
+    size:3,
+    rarity:7,
+    temper:2
   },
   {
-     Individual:"Japanese Bobtail",
-    Size:3,
-    Rarity:8,
-    Temper:5
+     individual:"Japanese Bobtail",
+    size:3,
+    rarity:8,
+    temper:5
   },
   {
-     Individual:"LOL Cats",
-    Size:3,
-    Rarity:1,
-    Temper:3
-   
+     individual:"LOL Cats",
+    size:3,
+    rarity:1,
+    temper:3
+
   },
   {
-     Individual:"Maine Coon",
-    Size:5,
-    Rarity:2,
-    Temper:4
-   
+     individual:"Maine Coon",
+    size:5,
+    rarity:2,
+    temper:4
+
   },
   {
-     Individual:"Manx",
-    Size:4,
-    Rarity:9,
-    Temper:3
-   
+     individual:"Manx",
+    size:4,
+    rarity:9,
+    temper:3
+
   },
   {
-     Individual:"Norwegian Forest",
-    Size:5,
-    Rarity:3,
-    Temper:5
-   
+     individual:"Norwegian Forest",
+    size:5,
+    rarity:3,
+    temper:5
+
   },
   {
-     Individual:"Persian",
-    Size:4,
-    Rarity:2,
-    Temper:5
-   
+     individual:"Persian",
+    size:4,
+    rarity:2,
+    temper:5
+
   },
   {
-     Individual:"Ocicat",
-    Size:3,
-    Rarity:7,
-    Temper:4
-   
+     individual:"Ocicat",
+    size:3,
+    rarity:7,
+    temper:4
+
   },
   {
-     Individual:"Ragdoll",
-    Size:4,
-    Rarity:5,
-    Temper:5
-   
+     individual:"Ragdoll",
+    size:4,
+    rarity:5,
+    temper:5
+
   },
   {
-     Individual:"Ragamuffin",
-    Size:5,
-    Rarity:6,
-    Temper:4
-   
+     individual:"Ragamuffin",
+    size:5,
+    rarity:6,
+    temper:4
+
   },
   {
-     Individual:"Russian Blue",
-    Size:2,
-    Rarity:8,
-    Temper:3
-   
+     individual:"Russian Blue",
+    size:2,
+    rarity:8,
+    temper:3
+
   },
   {
-     Individual:"Savannah",
-    Size:3,
-    Rarity:9,
-    Temper:3
-   
+     individual:"Savannah",
+    size:3,
+    rarity:9,
+    temper:3
+
   },
   {
-     Individual:"Scottish Fold",
-    Size:2,
-    Rarity:8,
-    Temper:5
-   
+     individual:"Scottish Fold",
+    size:2,
+    rarity:8,
+    temper:5
+
   },
   {
-     Individual:"Selkirk Rex",
-    Size:3,
-    Rarity:6,
-    Temper:4
-   
+     individual:"Selkirk Rex",
+    size:3,
+    rarity:6,
+    temper:4
+
   },
   {
-     Individual:"Siamese",
-    Size:2,
-    Rarity:3,
-    Temper:5
-   
+     individual:"Siamese",
+    size:2,
+    rarity:3,
+    temper:5
+
   },
   {
-     Individual:"Siberian",
-    Size:4,
-    Rarity:6,
-    Temper:3
-   
+     individual:"Siberian",
+    size:4,
+    rarity:6,
+    temper:3
+
   },
   {
-     Individual:"Singapura",
-    Size:1,
-    Rarity:7,
-    Temper:4
-   
+     individual:"Singapura",
+    size:1,
+    rarity:7,
+    temper:4
+
   },
   {
-     Individual:"Sphynx",
-    Size:3,
-    Rarity:9,
-    Temper:4
-   
+     individual:"Sphynx",
+    size:3,
+    rarity:9,
+    temper:4
+
   },
   {
-     Individual:"Gumball",
-    Size:1,
-    Rarity:5,
-    Temper:7
-   
+     individual:"Gumball",
+    size:1,
+    rarity:5,
+    temper:7
+
   },
   {
-     Individual:"Tiger",
-    Size:6,
-    Rarity:10,
-    Temper:0
-   
+     individual:"Tiger",
+    size:6,
+    rarity:10,
+    temper:0
+
   },
   {
-     Individual:"Turkish Van",
-    Size:4,
-    Rarity:8,
-    Temper:2
-   
+     individual:"Turkish Van",
+    size:4,
+    rarity:8,
+    temper:2
+
   },
   {
-     Individual:"Stray Cat",
-    Size:3,
-    Rarity:1,
-    Temper:5
-   
+     individual:"Stray Cat",
+    size:3,
+    rarity:1,
+    temper:5
+
   }]
     };
   }

@@ -37,6 +37,7 @@ export default {
       this.playerOneSelectedCard = payload[0]
       this.playerTwoSelectedCard = payload[2]
       this.selectedProperty = payload[1]
+      console.log(this.playerOneSelectedCard[this.selectedProperty])
     } )
   },
 

@@ -14,7 +14,8 @@ export default {
   props: ['cards'],
   methods: {
     handleClick(property){
-      eventBus.$emit('property-selected', this.cards[0], property )
+      eventBus.$emit('property-selected', [this.cards[0], property] )
+      this.cards.shift()
     }
   }
 }

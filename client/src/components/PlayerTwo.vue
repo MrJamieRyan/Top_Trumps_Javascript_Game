@@ -11,7 +11,14 @@
 import {eventBus} from "../main.js"
 export default {
   name: 'player-two',
-  props: ['cards']
+  props: ['cards'],
+  mounted(){
+
+    eventBus.$on('property-selected', (payload) => {
+      payload[2] = this.cards[0]
+      eventBus.$emit('both-cards-sent', payload)
+    })
+  }
 }
 </script>
 

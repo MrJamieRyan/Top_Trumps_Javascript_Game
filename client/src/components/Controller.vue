@@ -1,9 +1,9 @@
 <template>
-<div>
-  <button v-on:click="startGame">Start Game</button>
-  <player-one v-if="start" :cards="playerOneCards"/>
-  <player-two v-if="start" :cards="playerTwoCards"/>
-</div>
+  <div>
+    <button v-on:click="startGame">Start Game</button>
+    <player-one v-if="start" :cards="playerOneCards"/>
+    <player-two v-if="start" :cards="playerTwoCards"/>
+  </div>
 </template>
 
 <script>
@@ -22,13 +22,22 @@ export default {
     return {
       playerOneCards: [],
       playerTwoCards: [],
-      start: false
+      start: false,
+      playerOneSelectedCard: null,
+      playerTwoSelectedCard: null,
+      selectedProperty: null
     }
   },
 
   mounted(){
     this.shuffleCards()
     this.splitCards()
+
+    eventBus.$on('both-cards-sent', (payload) => {
+      this.playerOneSelectedCard = payload[0]
+      this.playerTwoSelectedCard = payload[2]
+      this.selectedProperty = payload[1]
+    } )
   },
 
   methods: {
@@ -49,12 +58,13 @@ export default {
 
     shuffleCards(){
 
-    for (let i = this.cards.length - 1; i > 0; i--) {
+      for (let i = this.cards.length - 1; i > 0; i--) {
         const j = Math.floor(Math.random() * (i + 1));
         [this.cards[i], this.cards[j]] = [this.cards[j], this.cards[i]];
-    }
+      }
 
     }
+
 
 
   }

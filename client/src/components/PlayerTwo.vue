@@ -17,6 +17,7 @@ export default {
     eventBus.$on('property-selected', (payload) => {
       payload[2] = this.cards[0]
       eventBus.$emit('both-cards-sent', payload)
+      this.cards.shift()
     })
   }
 }

@@ -1,7 +1,8 @@
 <template>
 <div>
-  <player-one :cards="playerOneCards"/>
-  <player-two :cards="playerTwoCards"/>
+  <button v-on:click="startGame">Start Game</button>
+  <player-one v-if="start" :cards="playerOneCards"/>
+  <player-two v-if="start" :cards="playerTwoCards"/>
 </div>
 </template>
 
@@ -20,7 +21,8 @@ export default {
   data(){
     return {
       playerOneCards: [],
-      playerTwoCards: []
+      playerTwoCards: [],
+      start: false
     }
   },
 
@@ -30,6 +32,10 @@ export default {
   },
 
   methods: {
+
+    startGame() {
+      this.start = true
+    },
 
     splitCards(){
       const numberOfCardsPerPlayer = this.cards.length / 2

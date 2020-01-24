@@ -1,6 +1,8 @@
 <template></template>
 
 <script>
+import Controller from "./components/Controller.vue"
+import {eventBus} from "./main.js"
 export default {
   name: "app",
   data() {

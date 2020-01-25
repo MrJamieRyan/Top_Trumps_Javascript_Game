@@ -15,207 +15,207 @@ export default {
       cards:
       [
   {
-     individual:"Abyssinian",
+    breed:"Abyssinian",
     size:2,
     rarity:4,
     temper:2
 
   },
   {
-     individual:"American Bobtail",
+    breed:"American Bobtail",
     size:4,
     rarity:6,
     temper:4
 
   },
   {
-     individual:"American Curl",
+    breed:"American Curl",
     size:2,
     rarity:7,
     temper:5
 
   },
   {
-     individual:"Balinese (aka Javanese)",
+    breed:"Balinese (aka Javanese)",
     size:3,
     rarity:8,
     temper:4
 
   },
   {
-     individual:"Bengal",
+    breed:"Bengal",
     size:4,
     rarity:1,
     temper:3
 
   },
   {
-     individual:"Bombay",
+    breed:"Bombay",
     size:3,
     rarity:2,
     temper:5
 
   },
   {
-     individual:"British Shorthair",
+    breed:"British Shorthair",
     size:4,
     rarity:1,
     temper:4
 
   },
   {
-     individual:"Devon Rex",
+    breed:"Devon Rex",
     size:2,
     rarity:7,
     temper:5
   },
   {
-     individual:"Egyptian Mau",
+    breed:"Egyptian Mau",
     size:3,
     rarity:7,
     temper:2
   },
   {
-     individual:"Japanese Bobtail",
+    breed:"Japanese Bobtail",
     size:3,
     rarity:8,
     temper:5
   },
   {
-     individual:"LOL Cats",
+    breed:"LOL Cats",
     size:3,
     rarity:1,
     temper:3
 
   },
   {
-     individual:"Maine Coon",
+    breed:"Maine Coon",
     size:5,
     rarity:2,
     temper:4
 
   },
   {
-     individual:"Manx",
+    breed:"Manx",
     size:4,
     rarity:9,
     temper:3
 
   },
   {
-     individual:"Norwegian Forest",
+    breed:"Norwegian Forest",
     size:5,
     rarity:3,
     temper:5
 
   },
   {
-     individual:"Persian",
+    breed:"Persian",
     size:4,
     rarity:2,
     temper:5
 
   },
   {
-     individual:"Ocicat",
+    breed:"Ocicat",
     size:3,
     rarity:7,
     temper:4
 
   },
   {
-     individual:"Ragdoll",
+    breed:"Ragdoll",
     size:4,
     rarity:5,
     temper:5
 
   },
   {
-     individual:"Ragamuffin",
+    breed:"Ragamuffin",
     size:5,
     rarity:6,
     temper:4
 
   },
   {
-     individual:"Russian Blue",
+    breed:"Russian Blue",
     size:2,
     rarity:8,
     temper:3
 
   },
   {
-     individual:"Savannah",
+    breed:"Savannah",
     size:3,
     rarity:9,
     temper:3
 
   },
   {
-     individual:"Scottish Fold",
+    breed:"Scottish Fold",
     size:2,
     rarity:8,
     temper:5
 
   },
   {
-     individual:"Selkirk Rex",
+    breed:"Selkirk Rex",
     size:3,
     rarity:6,
     temper:4
 
   },
   {
-     individual:"Siamese",
+    breed:"Siamese",
     size:2,
     rarity:3,
     temper:5
 
   },
   {
-     individual:"Siberian",
+    breed:"Siberian",
     size:4,
     rarity:6,
     temper:3
 
   },
   {
-     individual:"Singapura",
+    breed:"Singapura",
     size:1,
     rarity:7,
     temper:4
 
   },
   {
-     individual:"Sphynx",
+    breed:"Sphynx",
     size:3,
     rarity:9,
     temper:4
 
   },
   {
-     individual:"Gumball",
+    breed:"Gumball",
     size:1,
     rarity:5,
     temper:7
 
   },
   {
-     individual:"Tiger",
+    breed:"Tiger",
     size:6,
     rarity:10,
     temper:0
 
   },
   {
-     individual:"Turkish Van",
+    breed:"Turkish Van",
     size:4,
     rarity:8,
     temper:2
 
   },
   {
-     individual:"Stray Cat",
+    breed:"Stray Cat",
     size:3,
     rarity:1,
     temper:5
@@ -228,7 +228,5 @@ export default {
 
 <style>
 
-.loosing-player {
-  background-color: black
-}
+
 </style>

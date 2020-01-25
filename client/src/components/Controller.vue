@@ -1,6 +1,6 @@
 <template>
   <div>
-    <button v-on:click="startGame">Start Game</button>
+    <div class="start-game"> <button v-on:click="startGame">Start Game</button> </div>
     <div class="players-wrapper">
       <player-one v-if="start" :cards="playerOneCards" :winningPlayer="winningPlayer"/>
       <player-two v-if="start" :cards="playerTwoCards" :winningPlayer="winningPlayer"/>
@@ -86,12 +86,28 @@ export default {
 };
 </script>
 
-<style scoped>
+<style>
+
+.start-game{
+  text-align: center;
+}
 
 .players-wrapper{
   text-align: center;
   display: grid;
   grid-template-columns: 1fr 1fr;
+}
+
+.card-down {
+  background-color: black;
+  margin-left: 9rem;
+  margin-right: 9rem;
+}
+
+.card-up {
+  margin-left: 9rem;
+  margin-right: 9rem;
+  border: 1px solid black;
 }
 
 </style>

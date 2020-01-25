@@ -12,7 +12,7 @@ export default {
   props: ['cards', 'winningPlayer'],
   methods: {
     handleClick(property){
-      
+
       eventBus.$emit('playerone-property-selected', [this.cards[0], property] )
       this.cards.shift()
 
@@ -33,6 +33,7 @@ export default {
     eventBus.$on('player-one-wins', (payload) => {
       this.cards.push(payload[0])
       this.cards.push(payload[1])
+      
     })
   }
 }

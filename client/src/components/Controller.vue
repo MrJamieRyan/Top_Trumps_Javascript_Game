@@ -40,27 +40,16 @@ export default {
       this.selectedProperty = payload[1]
       if(this.playerOneSelectedCard[this.selectedProperty] > this.playerTwoSelectedCard[this.selectedProperty]){
         eventBus.$emit('player-one-wins', [this.playerOneSelectedCard, this.playerTwoSelectedCard])
-       
-
         this.winningPlayer = ''
-         setTimeout(function() { 
-           
-           return this.winningPlayer = 'player-one'}, 3000)
-           console.log(this.winningPlayer)
-         
-
+        setTimeout(() => {this.winningPlayer = 'player-one'}, 3000)
       }
       else
       {
         eventBus.$emit('player-two-wins', [this.playerOneSelectedCard, this.playerTwoSelectedCard])
-        
         this.winningPlayer = ''
-        setTimeout(function() { 
-          
-          return this.winningPlayer = 'player-two'}, 3000)
-          console.log(this.winningPlayer)
-  }
-     
+        setTimeout(() => {this.winningPlayer = 'player-two'}, 3000)
+      }
+
     } )
   },
 

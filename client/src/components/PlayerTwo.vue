@@ -1,7 +1,8 @@
 <template>
   <div :class="winningPlayer === 'player-two' || winningPlayer === 'both cards showing' ? '' : 'loosing-player'" >
     <p>PLAYER TWO</p>
-    <p v-on:click="handleClick(key)" v-for="(value, key) in cards[0]"> {{key}}: {{value}} </p>
+    <p>Name: {{cards[0].individual}}</p>
+    <p v-on:click="handleClick(key)" v-for="(value, key) in cardWithoutName"> {{key}}: {{value}} </p>
   </div>
 </template>
 
@@ -10,6 +11,15 @@ import {eventBus} from "../main.js"
 export default {
   name: 'player-two',
   props: ['cards', 'winningPlayer'],
+  data(){
+    return {
+      cardWithoutName: {
+        'size': this.cards[0].size,
+        'rarity': this.cards[0].rarity,
+        'temper': this.cards[0].temper
+      }
+    }
+  },
   mounted(){
 
     eventBus.$on('playerone-property-selected', (payload) => {

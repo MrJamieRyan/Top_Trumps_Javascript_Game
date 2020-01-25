@@ -1,8 +1,8 @@
 <template>
   <div :class="winningPlayer === 'player-two' || winningPlayer === 'both cards showing' ? 'card-up' : 'card-down'" >
     <p>PLAYER TWO</p>
-    <p>Name: {{cards[0].breed}}</p>
-    <p v-on:click="handleClick(key)" v-for="(value, key) in cardWithoutName"> {{key}}: {{value}} </p>
+    <p>Breed: {{cards[0].breed}}</p>
+    <p v-on:click="handleClick(key.toLowerCase())" v-for="(value, key) in cardWithoutName"> {{key}}: {{value}} </p>
   </div>
 </template>
 
@@ -14,18 +14,18 @@ export default {
   data(){
     return {
       cardWithoutName: {
-        'size': this.cards[0].size,
-        'rarity': this.cards[0].rarity,
-        'temper': this.cards[0].temper
+        'Size': this.cards[0].size,
+        'Rarity': this.cards[0].rarity,
+        'Temper': this.cards[0].temper
       }
     }
   },
   watch: {
     cards: function() {
       this.cardWithoutName = {
-        'size': this.cards[0].size,
-        'rarity': this.cards[0].rarity,
-        'temper': this.cards[0].temper
+        'Size': this.cards[0].size,
+        'Rarity': this.cards[0].rarity,
+        'Temper': this.cards[0].temper
       }
     }
   },

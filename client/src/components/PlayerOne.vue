@@ -1,5 +1,5 @@
 <template>
-  <div :class="winningPlayer === 'player-one' ? '' : 'loosing-player'"  >
+  <div :class="winningPlayer === 'player-one' || winningPlayer === 'both cards showing' ? '' : 'loosing-player'"  >
     <p>PLAYER ONE</p>
     <p v-on:click="handleClick(key)" v-for="(value, key) in cards[0]"> {{key}}: {{value}} </p>
   </div>
@@ -33,7 +33,7 @@ export default {
     eventBus.$on('player-one-wins', (payload) => {
       this.cards.push(payload[0])
       this.cards.push(payload[1])
-      
+
     })
   }
 }

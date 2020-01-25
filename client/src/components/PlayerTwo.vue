@@ -1,5 +1,5 @@
 <template>
-  <div :class="winningPlayer === 'player-two' ? '' : 'loosing-player'" >
+  <div :class="winningPlayer === 'player-two' || winningPlayer === 'both cards showing' ? '' : 'loosing-player'" >
     <p>PLAYER TWO</p>
     <p v-on:click="handleClick(key)" v-for="(value, key) in cards[0]"> {{key}}: {{value}} </p>
   </div>

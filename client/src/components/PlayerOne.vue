@@ -1,7 +1,14 @@
 <template>
   <div :class="winningPlayer === 'player-one' || winningPlayer === 'both cards showing' ? '' : 'loosing-player'"  >
     <p>PLAYER ONE</p>
-    <p v-on:click="handleClick(key)" v-for="(value, key) in cards[0]"> {{key}}: {{value}} </p>
+    <p>Name: {{cards[0].individual}}</p>
+    <p v-on:click="handleClick(key)" v-for="(value, key) in cardWithoutName"> {{key}}: {{value}} </p>
+
+    <!-- <p>Name: {{cards[0].individual}}</p>
+    <p v-on:click="handleClick(key)" v-for="key in Object.keys(cards[0]).slice(1)"> {{key}}</p>
+    <p v-for="value in cards[0]">{{value}}</p> -->
+    <!-- <p> {{cardWithoutName}}</p> -->
+
   </div>
 </template>
 
@@ -10,12 +17,20 @@ import {eventBus} from "../main.js"
 export default {
   name: 'player-one',
   props: ['cards', 'winningPlayer'],
+  data(){
+    return {
+      cardWithoutName: {
+        'size': this.cards[0].size,
+        'rarity': this.cards[0].rarity,
+        'temper': this.cards[0].temper
+      }
+    }
+  },
   methods: {
     handleClick(property){
 
       eventBus.$emit('playerone-property-selected', [this.cards[0], property] )
       this.cards.shift()
-
 
     }
   },

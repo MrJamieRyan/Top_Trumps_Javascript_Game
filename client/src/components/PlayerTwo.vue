@@ -20,6 +20,15 @@ export default {
       }
     }
   },
+  watch: {
+    cards: function() {
+      this.cardWithoutName = {
+        'size': this.cards[0].size,
+        'rarity': this.cards[0].rarity,
+        'temper': this.cards[0].temper
+      }
+    }
+  },
   mounted(){
 
     eventBus.$on('playerone-property-selected', (payload) => {

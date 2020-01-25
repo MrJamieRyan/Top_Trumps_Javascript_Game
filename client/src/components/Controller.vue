@@ -89,8 +89,9 @@ export default {
 <style scoped>
 
 .players-wrapper{
-
+  text-align: center;
   display: grid;
   grid-template-columns: 1fr 1fr;
 }
+
 </style>

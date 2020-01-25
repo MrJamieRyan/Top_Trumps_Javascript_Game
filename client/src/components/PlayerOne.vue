@@ -1,6 +1,6 @@
 <template>
-  <div>
-    <p>player one</p>
+  <div :class="winningPlayer === 'player-one' ? '' : 'loosing-player'"  >
+    <p>PLAYER ONE</p>
     <p v-on:click="handleClick(key)" v-for="(value, key) in cards[0]"> {{key}}: {{value}} </p>
   </div>
 </template>
@@ -9,11 +9,14 @@
 import {eventBus} from "../main.js"
 export default {
   name: 'player-one',
-  props: ['cards'],
+  props: ['cards', 'winningPlayer'],
   methods: {
     handleClick(property){
+      
       eventBus.$emit('playerone-property-selected', [this.cards[0], property] )
       this.cards.shift()
+
+
     }
   },
   mounted(){

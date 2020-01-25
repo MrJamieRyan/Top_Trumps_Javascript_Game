@@ -227,4 +227,8 @@ export default {
 </script>
 
 <style>
+
+.loosing-player {
+  background-color: black
+}
 </style>

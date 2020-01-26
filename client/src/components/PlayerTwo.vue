@@ -34,7 +34,7 @@ export default {
     eventBus.$on('playerone-property-selected', (payload) => {
       payload[2] = this.cards[0]
       eventBus.$emit('both-cards-sent', payload)
-      this.cards.shift()
+      setTimeout(() => this.cards.shift(), 3001)
     })
 
     eventBus.$on('player-two-wins', (payload) => {
@@ -45,7 +45,7 @@ export default {
   methods: {
     handleClick(property){
       eventBus.$emit('playertwo-property-selected', [this.cards[0], property] )
-      this.cards.shift()
+      setTimeout(() => this.cards.shift(), 3001)
     }
   }
 }

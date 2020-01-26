@@ -111,7 +111,7 @@ export default {
   border: 1px solid black;
 }
 
-.no-text {
+p.not-clickable {
   pointer-events: none;
 }
 

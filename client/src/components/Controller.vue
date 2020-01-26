@@ -43,13 +43,13 @@ export default {
       if(this.playerOneSelectedCard[this.selectedProperty] > this.playerTwoSelectedCard[this.selectedProperty]){
         eventBus.$emit('player-one-wins', [this.playerOneSelectedCard, this.playerTwoSelectedCard])
         this.winningPlayer = 'both cards showing'
-        setTimeout(() => {this.winningPlayer = 'player-one'}, 4000)
+        setTimeout(() => {this.winningPlayer = 'player-one'}, 3000)
       }
       else
       {
         eventBus.$emit('player-two-wins', [this.playerOneSelectedCard, this.playerTwoSelectedCard])
         this.winningPlayer = 'both cards showing'
-        setTimeout(() => {this.winningPlayer = 'player-two'}, 4000)
+        setTimeout(() => {this.winningPlayer = 'player-two'}, 3000)
       }
 
     } )

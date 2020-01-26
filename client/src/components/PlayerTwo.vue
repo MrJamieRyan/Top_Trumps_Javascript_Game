@@ -1,8 +1,8 @@
 <template>
-  <div :class="winningPlayer === 'player-two' || winningPlayer === 'both cards showing' ? 'card-up' : 'card-down'" >
+  <div :class="winningPlayer === 'player-two' || winningPlayer === 'bothCardsShowing' ? 'card-up' : 'card-down'" >
     <p>PLAYER TWO</p>
     <p>Breed: {{cards[0].breed}}</p>
-    <p v-on:click="handleClick(key.toLowerCase())" v-for="(value, key) in cardWithoutName"> {{key}}: {{value}} </p>
+    <p :class="winningPlayer === 'player-one' ? 'no-text' : ''" v-on:click="handleClick(key.toLowerCase())" v-for="(value, key) in cardWithoutName"> {{key}}: {{value}} </p>
   </div>
 </template>
 

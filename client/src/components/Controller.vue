@@ -112,7 +112,7 @@ export default {
 }
 
 .no-text {
-  display: none;
+  pointer-events: none;
 }
 
 </style>

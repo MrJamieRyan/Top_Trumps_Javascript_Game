@@ -1,10 +1,16 @@
 <template>
-  <div :class="winningPlayer === 'player-two' || winningPlayer === 'bothCardsShowing' ? 'card-up' : 'card-down'" >
-    <p>PLAYER TWO</p>
-    <p>Breed: {{cards[0].breed}}</p>
-    <p :class="winningPlayer === 'player-one' || winningPlayer === 'bothCardsShowing' ? 'not-clickable' : ''" v-on:click="handleClick(key.toLowerCase())" v-for="(value, key) in cardWithoutName">
-      {{key}}: {{value}}
-    </p>
+  <div>
+    <div :class="winningPlayer === 'player-two' || winningPlayer === 'bothCardsShowing' ? 'card-up' : 'card-down'" >
+      <p>PLAYER TWO</p>
+      <img id="catpic" src="../../public/images/Cat.jpg" >
+      <p>Breed: {{cards[0].breed}}</p>
+      <p :class="winningPlayer === 'player-one' || winningPlayer === 'bothCardsShowing' ? 'not-clickable' : ''" v-on:click="handleClick(key.toLowerCase())" v-for="(value, key) in cardWithoutName">
+        {{key}}: {{value}}
+      </p>
+    </div>
+    <div>
+      <p>Cards: {{this.cards.length}}</p>
+    </div>
   </div>
 </template>
 

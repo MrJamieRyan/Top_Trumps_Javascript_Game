@@ -1,16 +1,20 @@
 <template>
-  <div :class="winningPlayer === 'player-one' || winningPlayer === 'bothCardsShowing' ? 'card-up' : 'card-down'" >
-    <p>PLAYER ONE</p>
-    <p>Breed: {{cards[0].breed}}</p>
-    <p :class="winningPlayer === 'player-two'|| winningPlayer === 'bothCardsShowing' ? 'not-clickable' : ''" v-on:click="handleClick(key.toLowerCase())" v-for="(value, key) in cardWithoutName">
-      {{key}}: {{value}} 
-    </p>
-
-    <!-- <p>Name: {{cards[0].individual}}</p>
-    <p v-on:click="handleClick(key)" v-for="key in Object.keys(cards[0]).slice(1)"> {{key}}</p>
-    <p v-for="value in cards[0]">{{value}}</p> -->
-    <!-- <p> {{cardWithoutName}}</p> -->
-
+  <div>
+    <div :class="winningPlayer === 'player-one' || winningPlayer === 'bothCardsShowing' ? 'card-up' : 'card-down'" >
+      <p>PLAYER ONE</p>
+      <img id="catpic" src="../../public/images/Cat.jpg" >
+      <p>Breed: {{cards[0].breed}}</p>
+      <p :class="winningPlayer === 'player-two'|| winningPlayer === 'bothCardsShowing' ? 'not-clickable' : ''" v-on:click="handleClick(key.toLowerCase())" v-for="(value, key) in cardWithoutName">
+        {{key}}: {{value}}
+      </p>
+      <!-- <p>Name: {{cards[0].individual}}</p>
+      <p v-on:click="handleClick(key)" v-for="key in Object.keys(cards[0]).slice(1)"> {{key}}</p>
+      <p v-for="value in cards[0]">{{value}}</p> -->
+      <!-- <p> {{cardWithoutName}}</p> -->
+    </div>
+    <div>
+      <p>Cards: {{this.cards.length}}</p>
+    </div>
   </div>
 </template>
 

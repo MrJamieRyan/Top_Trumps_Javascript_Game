@@ -1,6 +1,9 @@
 <template>
   <div>
     <div class="start-game"> <button id="start-button" v-on:click="startGame">Start Game</button> </div>
+    <div>
+      <h1>{{winningPlayerStatement}}</h1>
+    </div>
     <div class="players-wrapper">
       <player-one v-if="start" :cards="playerOneCards" :winningPlayer="winningPlayer"/>
       <player-two v-if="start" :cards="playerTwoCards" :winningPlayer="winningPlayer"/>
@@ -28,7 +31,8 @@ export default {
       playerOneSelectedCard: null,
       playerTwoSelectedCard: null,
       selectedProperty: null,
-      winningPlayer: 'player-one'
+      winningPlayer: '',
+      winningPlayerStatement: ''
     }
   },
 
@@ -43,13 +47,17 @@ export default {
       if(this.playerOneSelectedCard[this.selectedProperty] > this.playerTwoSelectedCard[this.selectedProperty]){
         eventBus.$emit('player-one-wins', [this.playerOneSelectedCard, this.playerTwoSelectedCard])
         this.winningPlayer = 'bothCardsShowing'
-        setTimeout(() => {this.winningPlayer = 'player-one'}, 3000)
+        this.winningPlayerStatement = 'Player One Wins This Round!'
+        setTimeout(() => {this.winningPlayer = 'player-one';
+          this.winningPlayerStatement = ''}, 3000)
       }
       else
       {
         eventBus.$emit('player-two-wins', [this.playerOneSelectedCard, this.playerTwoSelectedCard])
         this.winningPlayer = 'bothCardsShowing'
-        setTimeout(() => {this.winningPlayer = 'player-two'}, 3000)
+        this.winningPlayerStatement = 'Player Two Wins This Round!'
+        setTimeout(() => {this.winningPlayer = 'player-two';
+          this.winningPlayerStatement = ''}, 3000)
       }
 
     } )

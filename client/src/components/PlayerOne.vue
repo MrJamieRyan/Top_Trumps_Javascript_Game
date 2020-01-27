@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div :class="winningPlayer === 'player-one' || winningPlayer === 'bothCardsShowing' ? 'card-up' : 'card-down'" >
+    <div :class="winningPlayer === 'player-one' || winningPlayer === 'bothCardsShowing' || winningPlayer === '' ? 'card-up' : 'card-down'" >
       <p>PLAYER ONE</p>
       <img id="catpic" src="../../public/images/Cat.jpg" >
       <p>Breed: {{playerOneCards[0].name}}</p>

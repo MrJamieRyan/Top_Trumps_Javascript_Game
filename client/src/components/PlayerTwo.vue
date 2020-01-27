@@ -54,8 +54,9 @@ export default {
     })
 
     eventBus.$on('player-two-wins', (payload) => {
-      this.playerTwoCards.push(payload[0])
-      this.playerTwoCards.push(payload[1])
+      for(let card of payload){
+        this.playerTwoCards.push(card)
+      }
     })
   },
   methods: {

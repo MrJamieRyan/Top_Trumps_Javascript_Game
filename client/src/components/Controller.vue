@@ -33,6 +33,7 @@ export default {
       start: false,
       playerOneSelectedCard: null,
       playerTwoSelectedCard: null,
+      cardsUpForGrabs: [],
       selectedProperty: null,
       winningPlayer: '',
       winningPlayerStatement: '',
@@ -45,22 +46,30 @@ export default {
     this.splitCards()
 
     eventBus.$on('both-cards-sent', (payload) => {
-      this.playerOneSelectedCard = payload[0]
-      this.playerTwoSelectedCard = payload[2]
+      this.cardsUpForGrabs.unshift(payload[2])
+      this.cardsUpForGrabs.unshift(payload[0])
       this.selectedProperty = payload[1]
-      if(this.playerOneSelectedCard[this.selectedProperty] > this.playerTwoSelectedCard[this.selectedProperty]){
-        eventBus.$emit('player-one-wins', [this.playerOneSelectedCard, this.playerTwoSelectedCard])
+
+
+      if(this.cardsUpForGrabs[0][this.selectedProperty] > this.cardsUpForGrabs[1][this.selectedProperty]){
+        eventBus.$emit('player-one-wins', this.cardsUpForGrabs)
+        this.cardsUpForGrabs = []
         this.winningPlayer = 'bothCardsShowing'
         this.winningPlayerStatement = 'Player One Wins This Round!'
         setTimeout(() => {this.winningPlayer = 'player-one';
           this.winningPlayerStatement = ''}, 3000)
       }
-      else if(this.playerOneSelectedCard[this.selectedProperty] === this.playerTwoSelectedCard[this.selectedProperty]){
-        this.winningPlayerStatement = "It's a draw!"
+
+      else if(this.cardsUpForGrabs[0][this.selectedProperty] === this.cardsUpForGrabs[1][this.selectedProperty]){
+        // this.winningPlayerStatement = "It's a draw!"
+
       }
+
       else
+
       {
-        eventBus.$emit('player-two-wins', [this.playerOneSelectedCard, this.playerTwoSelectedCard])
+        eventBus.$emit('player-two-wins', this.cardsUpForGrabs)
+        this.cardsUpForGrabs = []
         this.winningPlayer = 'bothCardsShowing'
         this.winningPlayerStatement = 'Player Two Wins This Round!'
         setTimeout(() => {this.winningPlayer = 'player-two';

@@ -15,7 +15,7 @@
         <p>Losses: {{playersRecords.playerTwoGamesLost}}</p>
       </div>
     </div>
-    <div>
+    <div class="winning-statement" >
       <h1>{{winningPlayerStatement}}</h1>
     </div>
     <div class="players-wrapper">
@@ -249,6 +249,25 @@ p.not-clickable {
   display: grid;
   grid-template-columns: 1fr 1fr;
   text-align: center;
+}
+
+.player-one-scores {
+background-color: red;
+width: 20vw;
+place-self: center;
+}
+
+.player-two-scores {
+background-color: blue;
+width: 20vw;
+place-self: center;
+}
+
+.winning-statement{
+text-align: center;
+font-size: 20px;
+  height: 40px;
+  place-self: center;
 }
 
 .property {

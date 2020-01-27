@@ -1,25 +1,21 @@
 <template>
   <div class="card-container">
-    <div :class="winningPlayer === 'player-two' || winningPlayer === 'bothCardsShowing' ? 'card-up' : 'card-down'" >
-      <p>PLAYER TWO</p>
-      <img id="catpic" src="../../public/images/Cat.jpg" >
+    <div
+      :class="winningPlayer === 'player-two' || winningPlayer === 'bothCardsShowing' ? 'card-up' : 'card-down'"
+    >
       <p>Breed: {{playerTwoCards[0].name}}</p>
+      <img id="catpic" src="../../public/images/Cat.jpg" />
 
       <p
-      class="property"
-      :id="key"
-
-      v-on:click="handleClick(key.toLowerCase())"
-
-      v-for="(value, key) in playerTwoCards[0]"
-
-      v-if="key !== 'name'"
+        class="property"
+        :id="key"
+        v-on:click="handleClick(key.toLowerCase())"
+        v-for="(value, key) in playerTwoCards[0]"
+        v-if="key !== 'name'"
       >
-
-      <!-- :class="winningPlayer === 'player-one' || winningPlayer === 'bothCardsShowing' ? 'not-clickable' : ''" -->
+        <!-- :class="winningPlayer === 'player-one' || winningPlayer === 'bothCardsShowing' ? 'not-clickable' : ''" -->
 
         {{key}}: {{value}}
-
       </p>
     </div>
     <div>
@@ -29,48 +25,49 @@
 </template>
 
 <script>
-import {eventBus} from "../main.js"
+import { eventBus } from "../main.js";
 export default {
-  name: 'player-two',
-  props: ['cards', 'winningPlayer'],
-  data(){
+  name: "player-two",
+  props: ["cards", "winningPlayer"],
+  data() {
     return {
       playerTwoCards: this.cards.slice()
-    }
+    };
   },
-  watch:{
-    playerTwoCards: function () {
-      if(this.playerTwoCards.length === 0){
-        eventBus.$emit('player-two-loses-game')
+  watch: {
+    playerTwoCards: function() {
+      if (this.playerTwoCards.length === 0) {
+        eventBus.$emit("player-two-loses-game");
       }
     }
   },
-  mounted(){
+  mounted() {
+    eventBus.$on("playerone-property-selected", payload => {
+      payload[2] = this.playerTwoCards[0];
+      eventBus.$emit("both-cards-sent", payload);
+      setTimeout(() => this.playerTwoCards.shift(), 3001);
+    });
 
-    eventBus.$on('playerone-property-selected', (payload) => {
-      payload[2] = this.playerTwoCards[0]
-      eventBus.$emit('both-cards-sent', payload)
-      setTimeout(() => this.playerTwoCards.shift(), 3001)
-    })
-
-    eventBus.$on('player-two-wins', (payload) => {
-      for(let card of payload){
-        this.playerTwoCards.push(card)
+    eventBus.$on("player-two-wins", payload => {
+      for (let card of payload) {
+        this.playerTwoCards.push(card);
       }
-    })
+    });
   },
   methods: {
-    handleClick(property){
+    handleClick(property) {
       // let targetProperty = document.getElementById(property).lastElementChild
       // targetProperty.classList.add('property-selected')
       // setTimeout(() => targetProperty.classList.remove('property-selected'), 3000)
-      eventBus.$emit('playertwo-property-selected', [this.playerTwoCards[0], property] )
-      setTimeout(() => this.playerTwoCards.shift(), 3001)
+      eventBus.$emit("playertwo-property-selected", [
+        this.playerTwoCards[0],
+        property
+      ]);
+      setTimeout(() => this.playerTwoCards.shift(), 3001);
     }
   }
-}
+};
 </script>
 
 <style>
-
 </style>

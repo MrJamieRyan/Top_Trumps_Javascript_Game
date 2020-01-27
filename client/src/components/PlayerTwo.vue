@@ -5,7 +5,9 @@
       <img id="catpic" src="../../public/images/Cat.jpg" >
       <p>Breed: {{playerTwoCards[0].name}}</p>
 
-      <p :class="winningPlayer === 'player-one' || winningPlayer === 'bothCardsShowing' ? 'not-clickable' : ''"
+      <p
+
+      :id="key"
 
       v-on:click="handleClick(key.toLowerCase())"
 
@@ -13,6 +15,8 @@
 
       v-if="key !== 'name'"
       >
+
+      <!-- :class="winningPlayer === 'player-one' || winningPlayer === 'bothCardsShowing' ? 'not-clickable' : ''" -->
 
         {{key}}: {{value}}
 
@@ -56,6 +60,9 @@ export default {
   },
   methods: {
     handleClick(property){
+      // let targetProperty = document.getElementById(property).lastElementChild
+      // targetProperty.classList.add('property-selected')
+      // setTimeout(() => targetProperty.classList.remove('property-selected'), 3000)
       eventBus.$emit('playertwo-property-selected', [this.playerTwoCards[0], property] )
       setTimeout(() => this.playerTwoCards.shift(), 3001)
     }

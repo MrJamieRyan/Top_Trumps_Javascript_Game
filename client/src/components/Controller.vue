@@ -165,4 +165,9 @@ p.not-clickable {
   width: 80%;
 }
 
+.property-selected {
+  background-color: red;
+
+}
+
 </style>

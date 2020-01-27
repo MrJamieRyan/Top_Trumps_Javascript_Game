@@ -199,7 +199,7 @@ export default {
     rarity:5,
     temper:7
 
-  },
+  },  
   {
     name: "Tiger",
     size:6,

@@ -55,6 +55,9 @@ export default {
         setTimeout(() => {this.winningPlayer = 'player-one';
           this.winningPlayerStatement = ''}, 3000)
       }
+      else if(this.playerOneSelectedCard[this.selectedProperty] === this.playerTwoSelectedCard[this.selectedProperty]){
+        this.winningPlayerStatement = "It's a draw!"
+      }
       else
       {
         eventBus.$emit('player-two-wins', [this.playerOneSelectedCard, this.playerTwoSelectedCard])
@@ -134,27 +137,27 @@ export default {
   text-align: center;
   display: grid;
   grid-template-columns: 1fr 1fr;
+    place-self: center;
+}
 
+.card-container{
+  place-self: center;
 }
 
 .card-down {
   width: 20vw;
   height: 30vw;
   background-color: black;
-  margin-left: 9rem;
-  margin-right: 9rem;
   border: 2px solid black;
   border-radius: 10px;
-
 }
 
 .card-up {
   width: 20vw;
   height: 30vw;
-  margin-left: 9rem;
-  margin-right: 9rem;
   border: 2px solid black;
   border-radius: 10px;
+
 }
 
 p.not-clickable {

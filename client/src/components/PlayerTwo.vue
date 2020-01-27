@@ -31,12 +31,14 @@ export default {
   props: ['cards', 'winningPlayer'],
   data(){
     return {
-      playerTwoCards: this.cards
+      playerTwoCards: this.cards.slice()
     }
   },
-  watch: {
-    cards: function() {
-      this.playerTwoCards = this.cards
+  watch:{
+    playerTwoCards: function () {
+      if(this.playerTwoCards.length === 0){
+        eventBus.$emit('player-two-loses')
+      }
     }
   },
   mounted(){

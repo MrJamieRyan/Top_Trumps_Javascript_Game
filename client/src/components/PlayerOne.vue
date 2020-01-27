@@ -33,19 +33,20 @@ export default {
   props: ['cards', 'winningPlayer'],
   data(){
     return {
-      playerOneCards: this.cards
+      playerOneCards: this.cards.slice()
     }
   },
-  watch: {
-    cards: function() {
-      this.playerOneCards = this.cards
+  watch:{
+    playerOneCards: function () {
+      if(this.playerOneCards.length === 0){
+        eventBus.$emit('player-one-loses')
+      }
     }
   },
   methods: {
     handleClick(property){
 
       eventBus.$emit('playerone-property-selected', [this.playerOneCards[0], property] )
-      // this.cards.shift()
       setTimeout(() => this.playerOneCards.shift(), 3001)
     }
   },
@@ -57,7 +58,6 @@ export default {
       newPayload[1] = payload[1]
       newPayload[2] = payload[0]
       eventBus.$emit('both-cards-sent', newPayload)
-      // this.cards.shift()
       setTimeout(() => this.playerOneCards.shift(), 3001)
     })
 
@@ -66,6 +66,8 @@ export default {
       this.playerOneCards.push(payload[1])
 
     })
+
+
   }
 }
 </script>

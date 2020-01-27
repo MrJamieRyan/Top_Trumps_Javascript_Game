@@ -5,8 +5,8 @@
       <h1>{{winningPlayerStatement}}</h1>
     </div>
     <div class="players-wrapper">
-      <player-one v-if="start" :cards="playerOneCards" :winningPlayer="winningPlayer"/>
-      <player-two v-if="start" :cards="playerTwoCards" :winningPlayer="winningPlayer"/>
+      <player-one v-if="start" :cards="playerOneCardsDealt" :winningPlayer="winningPlayer"/>
+      <player-two v-if="start" :cards="playerTwoCardsDealt" :winningPlayer="winningPlayer"/>
     </div>
   </div>
 </template>
@@ -25,8 +25,8 @@ export default {
 
   data(){
     return {
-      playerOneCards: [],
-      playerTwoCards: [],
+      playerOneCardsDealt: [],
+      playerTwoCardsDealt: [],
       start: false,
       playerOneSelectedCard: null,
       playerTwoSelectedCard: null,
@@ -72,10 +72,10 @@ export default {
     splitCards(){
       const numberOfCardsPerPlayer = this.cards.length / 2
       for (let i = 0; i < numberOfCardsPerPlayer; i++) {
-        this.playerOneCards[i] = this.cards[i]
+        this.playerOneCardsDealt[i] = this.cards[i]
       }
       for (let i = numberOfCardsPerPlayer; i < this.cards.length; i++) {
-        this.playerTwoCards[i - numberOfCardsPerPlayer] = this.cards[i]
+        this.playerTwoCardsDealt[i - numberOfCardsPerPlayer] = this.cards[i]
       }
     },
 
@@ -119,6 +119,7 @@ export default {
   text-align: center;
   display: grid;
   grid-template-columns: 1fr 1fr;
+
 }
 
 .card-down {

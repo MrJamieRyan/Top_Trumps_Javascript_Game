@@ -3,12 +3,12 @@
     <div class="start-game"> <button id="start-button" v-on:click="startGame">Start Game</button> </div>
     <div class="scores">
       <div class="player-one-scores">
-        <p>P1 wins: {{playerOneGamesWon}}</p>
-        <p>P1 losses: {{playerOneGamesLost}}</p>
+        <p>P1 wins: {{playersRecords.playerOneGamesWon}}</p>
+        <p>P1 losses: {{playersRecords.playerOneGamesLost}}</p>
       </div>
       <div class="player-two-scores">
-        <p>P2 wins: {{playerTwoGamesWon}}</p>
-        <p>P2 losses: {{playerTwoGamesLost}}</p>
+        <p>P2 wins: {{playersRecords.playerTwoGamesWon}}</p>
+        <p>P2 losses: {{playersRecords.playerTwoGamesLost}}</p>
       </div>
     </div>
     <div>
@@ -25,6 +25,8 @@
 </template>
 
 <script>
+
+import PlayersService from "../../services/PlayersService.js"
 import { eventBus } from "../main.js";
 import PlayerOne from "./PlayerOne.vue";
 import PlayerTwo from "./PlayerTwo.vue";
@@ -46,15 +48,18 @@ export default {
       winningPlayer: '',
       winningPlayerStatement: '',
       gameWinner: '',
-      playerOneGamesWon: 0,
-      playerTwoGamesWon: 0,
-      playerOneGamesLost: 0,
-      playerTwoGamesLost: 0
+      playersRecords: {
+        playerOneGamesWon: null,
+        playerOneGamesLost: null,
+        playerTwoGamesWon: null,
+        playerTwoGamesLost: null
+      }
 
     }
   },
 
   mounted(){
+    this.fetchPlayers()
     this.shuffleCards()
     this.splitCards()
 
@@ -114,6 +119,11 @@ export default {
   },
 
   methods: {
+
+    fetchPlayers() {
+      PlayersService.getPlayers()
+      .then(playersRecords => this.playersRecords = playersRecords[0])
+    },
 
     startGame() {
       this.start = true

@@ -37,7 +37,7 @@ export default {
   watch:{
     playerTwoCards: function () {
       if(this.playerTwoCards.length === 0){
-        eventBus.$emit('player-two-loses')
+        eventBus.$emit('player-two-loses-game')
       }
     }
   },

@@ -8,6 +8,9 @@
       <player-one v-if="start" :cards="playerOneCardsDealt" :winningPlayer="winningPlayer"/>
       <player-two v-if="start" :cards="playerTwoCardsDealt" :winningPlayer="winningPlayer"/>
     </div>
+    <div v-if="gameWinner !== ''">
+      <h1>{{gameWinner}}</h1>
+    </div>
   </div>
 </template>
 
@@ -32,7 +35,8 @@ export default {
       playerTwoSelectedCard: null,
       selectedProperty: null,
       winningPlayer: '',
-      winningPlayerStatement: ''
+      winningPlayerStatement: '',
+      gameWinner: ''
     }
   },
 
@@ -61,12 +65,23 @@ export default {
       }
 
     } )
+
+    eventBus.$on('player-one-loses-game', () => {
+      this.gameWinner = 'Player Two Wins The Game!'
+      this.start = false
+    })
+
+    eventBus.$on('player-two-loses-game', () => {
+      this.gameWinner = 'Player One Wins The Game!'
+      this.start = false
+    })
   },
 
   methods: {
 
     startGame() {
       this.start = true
+      this.gameWinner = ''
     },
 
     splitCards(){

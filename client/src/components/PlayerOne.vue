@@ -7,6 +7,7 @@
 
       <p
 
+      class="property"
       :id="key"
 
       v-on:click="handleClick(key)"
@@ -81,5 +82,7 @@ export default {
 </script>
 
 <style>
+
+
 
 </style>

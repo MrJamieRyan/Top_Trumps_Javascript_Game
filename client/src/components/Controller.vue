@@ -15,7 +15,7 @@
       <h1>{{winningPlayerStatement}}</h1>
     </div>
     <div class="players-wrapper">
-      <player-one v-if="start" :cards="playerOneCardsDealt" :winningPlayer="winningPlayer"/>
+      <player-one v-if="start" :cards="playerOneCardsDealt" :winningPlayer="winningPlayer" />
       <player-two v-if="start" :cards="playerTwoCardsDealt" :winningPlayer="winningPlayer"/>
     </div>
     <div v-if="gameWinner !== ''">
@@ -210,6 +210,10 @@ p.not-clickable {
   display: grid;
   grid-template-columns: 1fr 1fr;
   text-align: center;
+}
+
+.property {
+  cursor: pointer;
 }
 
 </style>

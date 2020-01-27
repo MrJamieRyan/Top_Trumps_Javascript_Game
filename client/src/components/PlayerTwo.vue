@@ -6,7 +6,7 @@
       <p>Breed: {{playerTwoCards[0].name}}</p>
 
       <p
-
+      class="property"
       :id="key"
 
       v-on:click="handleClick(key.toLowerCase())"

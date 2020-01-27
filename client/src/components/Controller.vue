@@ -61,8 +61,11 @@ export default {
       }
 
       else if(this.cardsUpForGrabs[0][this.selectedProperty] === this.cardsUpForGrabs[1][this.selectedProperty]){
-        // this.winningPlayerStatement = "It's a draw!"
-
+        let lastWinningPlayer = this.winningPlayer
+        this.winningPlayer = 'bothCardsShowing'
+        this.winningPlayerStatement = "It's a draw!"
+        setTimeout(() => {this.winningPlayer = lastWinningPlayer;
+          this.winningPlayerStatement = ''}, 3000)
       }
 
       else

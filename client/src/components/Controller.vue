@@ -1,6 +1,16 @@
 <template>
   <div>
     <div class="start-game"> <button id="start-button" v-on:click="startGame">Start Game</button> </div>
+    <div class="scores">
+      <div class="player-one-scores">
+        <p>P1 wins: {{playerOneGamesWon}}</p>
+        <p>P1 losses: {{playerOneGamesLost}}</p>
+      </div>
+      <div class="player-two-scores">
+        <p>P2 wins: {{playerTwoGamesWon}}</p>
+        <p>P2 losses: {{playerTwoGamesLost}}</p>
+      </div>
+    </div>
     <div>
       <h1>{{winningPlayerStatement}}</h1>
     </div>
@@ -31,13 +41,16 @@ export default {
       playerOneCardsDealt: [],
       playerTwoCardsDealt: [],
       start: false,
-      playerOneSelectedCard: null,
-      playerTwoSelectedCard: null,
       cardsUpForGrabs: [],
       selectedProperty: null,
       winningPlayer: '',
       winningPlayerStatement: '',
-      gameWinner: ''
+      gameWinner: '',
+      playerOneGamesWon: 0,
+      playerTwoGamesWon: 0,
+      playerOneGamesLost: 0,
+      playerTwoGamesLost: 0
+
     }
   },
 
@@ -84,11 +97,19 @@ export default {
     eventBus.$on('player-one-loses-game', () => {
       this.gameWinner = 'Player Two Wins The Game!'
       this.start = false
+      this.playerOneGamesLost += 1
+      this.playerTwoGamesWon += 1
+      this.shuffleCards()
+      this.splitCards()
     })
 
     eventBus.$on('player-two-loses-game', () => {
       this.gameWinner = 'Player One Wins The Game!'
       this.start = false
+      this.playerTwoGamesLost += 1
+      this.playerOneGamesWon += 1
+      this.shuffleCards()
+      this.splitCards()
     })
   },
 
@@ -183,6 +204,12 @@ p.not-clickable {
 .property-selected {
   background-color: red;
 
+}
+
+.scores {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  text-align: center;
 }
 
 </style>

@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="start-game"> <button v-on:click="startGame">Start Game</button> </div>
+    <div class="start-game"> <button id="start-button" v-on:click="startGame">Start Game</button> </div>
     <div class="players-wrapper">
       <player-one v-if="start" :cards="playerOneCards" :winningPlayer="winningPlayer"/>
       <player-two v-if="start" :cards="playerTwoCards" :winningPlayer="winningPlayer"/>
@@ -88,6 +88,20 @@ export default {
 
 <style>
 
+#start-button {
+  border: 2px solid black;
+  background-color: white;
+  color: black;
+  padding: 14px 28px;
+  font-size: 16px;
+  cursor: pointer;
+  margin: 20px;
+}
+
+*{
+  font-family: 'Roboto', sans-serif;
+}
+
 .start-game{
   text-align: center;
 }
@@ -99,20 +113,31 @@ export default {
 }
 
 .card-down {
+  width: 50%;
+  height: 300px;
   background-color: black;
   margin-left: 9rem;
   margin-right: 9rem;
+  border: 2px solid black;
+  border-radius: 10px;
 
 }
 
 .card-up {
+  width: 50%;
+  height: 300px;
   margin-left: 9rem;
   margin-right: 9rem;
-  border: 1px solid black;
+  border: 2px solid black;
+  border-radius: 10px;
 }
 
 p.not-clickable {
   pointer-events: none;
+}
+
+#catpic {
+  width: 80%;
 }
 
 </style>

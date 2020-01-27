@@ -112,6 +112,7 @@ export default {
 
 .start-game{
   text-align: center;
+
 }
 
 .players-wrapper{
@@ -121,8 +122,8 @@ export default {
 }
 
 .card-down {
-  width: 50%;
-  height: 375px;
+  width: 20vw;
+  height: 30vw;
   background-color: black;
   margin-left: 9rem;
   margin-right: 9rem;
@@ -132,8 +133,8 @@ export default {
 }
 
 .card-up {
-  width: 50%;
-  height: 375px;
+  width: 20vw;
+  height: 30vw;
   margin-left: 9rem;
   margin-right: 9rem;
   border: 2px solid black;

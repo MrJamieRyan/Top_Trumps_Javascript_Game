@@ -114,7 +114,7 @@ export default {
 
 .card-down {
   width: 50%;
-  height: 300px;
+  height: 375px;
   background-color: black;
   margin-left: 9rem;
   margin-right: 9rem;
@@ -125,7 +125,7 @@ export default {
 
 .card-up {
   width: 50%;
-  height: 300px;
+  height: 375px;
   margin-left: 9rem;
   margin-right: 9rem;
   border: 2px solid black;

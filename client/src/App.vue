@@ -15,207 +15,207 @@ export default {
       cards:
       [
   {
-    breed:"Abyssinian",
+    name: "Abyssinian",
     size:2,
     rarity:4,
     temper:2
 
   },
   {
-    breed:"American Bobtail",
+    name: "American Bobtail",
     size:4,
     rarity:6,
     temper:4
 
   },
   {
-    breed:"American Curl",
+    name: "American Curl",
     size:2,
     rarity:7,
     temper:5
 
   },
   {
-    breed:"Balinese (aka Javanese)",
+    name: "Balinese (aka Javanese)",
     size:3,
     rarity:8,
     temper:4
 
   },
   {
-    breed:"Bengal",
+    name: "Bengal",
     size:4,
     rarity:1,
     temper:3
 
   },
   {
-    breed:"Bombay",
+    name: "Bombay",
     size:3,
     rarity:2,
     temper:5
 
   },
   {
-    breed:"British Shorthair",
+    name: "British Shorthair",
     size:4,
     rarity:1,
     temper:4
 
   },
   {
-    breed:"Devon Rex",
+    name: "Devon Rex",
     size:2,
     rarity:7,
     temper:5
   },
   {
-    breed:"Egyptian Mau",
+    name: "Egyptian Mau",
     size:3,
     rarity:7,
     temper:2
   },
   {
-    breed:"Japanese Bobtail",
+    name: "Japanese Bobtail",
     size:3,
     rarity:8,
     temper:5
   },
   {
-    breed:"LOL Cats",
+    name: "LOL Cats",
     size:3,
     rarity:1,
     temper:3
 
   },
   {
-    breed:"Maine Coon",
+    name: "Maine Coon",
     size:5,
     rarity:2,
     temper:4
 
   },
   {
-    breed:"Manx",
+    name: "Manx",
     size:4,
     rarity:9,
     temper:3
 
   },
   {
-    breed:"Norwegian Forest",
+    name: "Norwegian Forest",
     size:5,
     rarity:3,
     temper:5
 
   },
   {
-    breed:"Persian",
+    name: "Persian",
     size:4,
     rarity:2,
     temper:5
 
   },
   {
-    breed:"Ocicat",
+    name: "Ocicat",
     size:3,
     rarity:7,
     temper:4
 
   },
   {
-    breed:"Ragdoll",
+    name: "Ragdoll",
     size:4,
     rarity:5,
     temper:5
 
   },
   {
-    breed:"Ragamuffin",
+    name: "Ragamuffin",
     size:5,
     rarity:6,
     temper:4
 
   },
   {
-    breed:"Russian Blue",
+    name: "Russian Blue",
     size:2,
     rarity:8,
     temper:3
 
   },
   {
-    breed:"Savannah",
+    name: "Savannah",
     size:3,
     rarity:9,
     temper:3
 
   },
   {
-    breed:"Scottish Fold",
+    name: "Scottish Fold",
     size:2,
     rarity:8,
     temper:5
 
   },
   {
-    breed:"Selkirk Rex",
+    name: "Selkirk Rex",
     size:3,
     rarity:6,
     temper:4
 
   },
   {
-    breed:"Siamese",
+    name: "Siamese",
     size:2,
     rarity:3,
     temper:5
 
   },
   {
-    breed:"Siberian",
+    name: "Siberian",
     size:4,
     rarity:6,
     temper:3
 
   },
   {
-    breed:"Singapura",
+    name: "Singapura",
     size:1,
     rarity:7,
     temper:4
 
   },
   {
-    breed:"Sphynx",
+    name: "Sphynx",
     size:3,
     rarity:9,
     temper:4
 
   },
   {
-    breed:"Gumball",
+    name: "Gumball",
     size:1,
     rarity:5,
     temper:7
 
   },
   {
-    breed:"Tiger",
+    name: "Tiger",
     size:6,
     rarity:10,
     temper:0
 
   },
   {
-    breed:"Turkish Van",
+    name: "Turkish Van",
     size:4,
     rarity:8,
     temper:2
 
   },
   {
-    breed:"Stray Cat",
+    name: "Stray Cat",
     size:3,
     rarity:1,
     temper:5

@@ -49,17 +49,17 @@ export default {
       winningPlayerStatement: '',
       gameWinner: '',
       playersRecords: {
-        playerOneGamesWon: null,
-        playerOneGamesLost: null,
-        playerTwoGamesWon: null,
-        playerTwoGamesLost: null
+        playerOneGamesWon: 0,
+        playerOneGamesLost: 0,
+        playerTwoGamesWon: 0,
+        playerTwoGamesLost: 0
       }
 
     }
   },
 
   mounted(){
-    this.fetchPlayers()
+
     this.shuffleCards()
     this.splitCards()
 
@@ -104,6 +104,7 @@ export default {
       this.start = false
       this.playerOneGamesLost += 1
       this.playerTwoGamesWon += 1
+      // this.handleUpdate()
       this.shuffleCards()
       this.splitCards()
     })
@@ -113,6 +114,7 @@ export default {
       this.start = false
       this.playerTwoGamesLost += 1
       this.playerOneGamesWon += 1
+      // this.handleUpdate()
       this.shuffleCards()
       this.splitCards()
     })
@@ -124,10 +126,15 @@ export default {
       PlayersService.getPlayers()
       .then(playersRecords => this.playersRecords = playersRecords[0])
     },
+    //
+    // handleUpdate(){
+    //   PlayersService.updatePlayers(this.playersRecords, this.playersRecords._id)
+    // },
 
     startGame() {
       this.start = true
       this.gameWinner = ''
+      this.fetchPlayers()
     },
 
     splitCards(){

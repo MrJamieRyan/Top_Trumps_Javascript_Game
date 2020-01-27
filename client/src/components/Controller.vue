@@ -6,16 +6,20 @@
     <div class="scores">
       <div class="player-one-scores">
         <p>PLAYER ONE</p>
-        <p>Wins: {{playersRecords.playerOneGamesWon}}</p>
-        <p>Losses: {{playersRecords.playerOneGamesLost}}</p>
+        <p>
+          Wins: {{playersRecords.playerOneGamesWon}} -
+          Losses: {{playersRecords.playerOneGamesLost}}
+        </p>
       </div>
       <div class="player-two-scores">
         <p>PLAYER TWO</p>
-        <p>Wins: {{playersRecords.playerTwoGamesWon}}</p>
-        <p>Losses: {{playersRecords.playerTwoGamesLost}}</p>
+        <p>
+          Wins: {{playersRecords.playerTwoGamesWon}} -
+          Losses: {{playersRecords.playerTwoGamesLost}}
+        </p>
       </div>
     </div>
-    <div class="winning-statement" >
+    <div class="winning-statement">
       <h1>{{winningPlayerStatement}}</h1>
     </div>
     <div class="players-wrapper">
@@ -252,20 +256,20 @@ p.not-clickable {
 }
 
 .player-one-scores {
-background-color: red;
-width: 20vw;
-place-self: center;
+  background-color: red;
+  width: 20vw;
+  place-self: center;
 }
 
 .player-two-scores {
-background-color: blue;
-width: 20vw;
-place-self: center;
+  background-color: blue;
+  width: 20vw;
+  place-self: center;
 }
 
-.winning-statement{
-text-align: center;
-font-size: 20px;
+.winning-statement {
+  text-align: center;
+  font-size: 20px;
   height: 40px;
   place-self: center;
 }

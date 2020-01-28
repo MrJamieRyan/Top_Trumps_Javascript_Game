@@ -167,6 +167,11 @@ export default {
 </script>
 
 <style>
+
+body {
+  background-color: lightgray;
+}
+
 #start-button {
   font-family: "Kanit", sans-serif;
   border: 4px solid #00897B;
@@ -228,11 +233,11 @@ export default {
   background: #eee;
   box-shadow:
     /* Top layer shadow */ 0 1px 1px rgba(0, 0, 0, 0.15),
-    /* Second layer */ 0 10px 0 -5px #eee,
+    /* Second layer */ 0 10px 0 -5px #7E57C2,
     /* Second layer shadow */ 0 10px 1px -4px rgba(0, 0, 0, 0.15),
-    /* Third layer */ 0 20px 0 -10px #eee,
+    /* Third layer */ 0 20px 0 -10px #7E57C2,
     /* Third layer shadow */ 0 20px 1px -9px rgba(0, 0, 0, 0.15),
-    /* Shadow at bottom */ 0 8px 16px 0 rgba(0, 0, 0, 0.2),
+    /* Shadow at bottom */ 0 8px 16px 0 rgba(0, 0, 0, 0.15),
     0 6px 20px 0 rgba(0, 0, 0, 0.19);
   width: 20vw;
   height: 30vw;
@@ -259,16 +264,16 @@ p.not-clickable {
 
 .player-one-scores {
   border: 4px solid #C62828;
+  background-color: lightgray;
   width: 20vw;
   place-self: center;
-  box-shadow: 5px 10px;
 }
 
 .player-two-scores {
   border: 4px solid #5C6BC0;
+  background-color: lightgray;
   width: 20vw;
   place-self: center;
-  box-shadow: 5px 10px;
 }
 
 .winning-statement {

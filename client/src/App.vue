@@ -16,20 +16,25 @@ export default {
     "controller": Controller,
     "deck-selection": DeckSelection
   },
+  data() {
+    return {
+      decks: [],
+      cards: [],
+      deckSelected: false
+    }
+  },
   mounted(){
     this.fetchDecks()
+
+    eventBus.$on('deck-selected', (payload) => {
+      this.cards = payload
+      this.deckSelected = true
+    })
   },
   methods: {
     fetchDecks() {
       CardDecksService.getDecks()
       .then(decks => this.decks = decks)
-    }
-  }
-  ,
-  data() {
-    return {
-      decks: [],
-      deckSelected: false
     }
   }
 };

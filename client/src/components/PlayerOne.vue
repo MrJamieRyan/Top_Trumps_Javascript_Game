@@ -4,7 +4,7 @@
     class="card-up" >
       <br>
       <p>Breed: {{playerOneCards[0].name}}</p>
-      <img id="catpic" src="../../public/images/Cat.jpg" >
+      <img id="catpic" :src="playerOneCards[0].imageURL" >
 
 
       <p

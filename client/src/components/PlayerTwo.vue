@@ -50,13 +50,17 @@ export default {
     eventBus.$on('playerone-property-selected', (payload) => {
       payload[2] = this.playerTwoCards[0]
       eventBus.$emit('both-cards-sent', payload)
-      setTimeout(() => this.playerTwoCards.shift(), 3001)
+      setTimeout(() => this.playerTwoCards.shift(), 3000)
     })
 
     eventBus.$on('player-two-wins', (payload) => {
-      for(let card of payload){
-        this.playerTwoCards.push(card)
-      }
+      setTimeout(() => {
+        for(let card of payload){
+          this.playerTwoCards.push(card)
+        }
+      }, 3000)
+
+
     })
   },
   methods: {
@@ -65,7 +69,7 @@ export default {
       // targetProperty.classList.add('property-selected')
       // setTimeout(() => targetProperty.classList.remove('property-selected'), 3000)
       eventBus.$emit('playertwo-property-selected', [this.playerTwoCards[0], property] )
-      setTimeout(() => this.playerTwoCards.shift(), 3001)
+      setTimeout(() => this.playerTwoCards.shift(), 3000)
     }
   }
 }

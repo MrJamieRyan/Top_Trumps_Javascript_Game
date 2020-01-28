@@ -71,9 +71,11 @@ export default {
     })
 
     eventBus.$on('player-one-wins', (payload) => {
-      for(let card of payload){
-        this.playerOneCards.push(card)
-      }
+      setTimeout(() => {
+        for(let card of payload){
+          this.playerOneCards.push(card)
+        }
+      }, 3000)
     })
 
 

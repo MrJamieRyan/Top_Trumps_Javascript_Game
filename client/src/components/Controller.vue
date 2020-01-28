@@ -16,7 +16,7 @@
     </div>
     <div class="players-wrapper">
       <player-one v-if="start" :cards="playerOneCardsDealt" :winningPlayer="winningPlayer" />
-      <player-two v-if="start" :cards="playerTwoCardsDealt" :winningPlayer="winningPlayer"/>
+      <player-two v-if="start" :cards="playerTwoCardsDealt" :winningPlayer="winningPlayer" />
     </div>
     <div v-if="gameWinner !== ''">
       <h1>{{gameWinner}}</h1>

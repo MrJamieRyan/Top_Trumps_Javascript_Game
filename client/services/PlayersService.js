@@ -6,20 +6,7 @@ export default {
     return fetch(baseURL)
     .then(res => res.json())
   },
-  // ,
-  // postBooking(payload){
-  //   return fetch(baseURL, {
-  //     method: 'POST',
-  //     body: JSON.stringify(payload),
-  //     headers: { 'Content-Type': 'application/json'}
-  //   })
-  //   .then(result => result.json())
-  // },
-  // deleteBooking(id){
-  //   return fetch(baseURL + id, {
-  //     method: 'DELETE'
-  //   })
-  // },
+
   updatePlayers(payload, id){
     return fetch(baseURL + id, {
       method: 'PUT',

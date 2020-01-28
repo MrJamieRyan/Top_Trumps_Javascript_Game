@@ -102,9 +102,13 @@ export default {
     eventBus.$on('player-one-loses-game', () => {
       this.gameWinner = 'Player Two Wins The Game!'
       this.start = false
-      this.playerOneGamesLost += 1
-      this.playerTwoGamesWon += 1
-      // this.handleUpdate()
+      this.playersRecords.playerOneGamesLost += 1
+      this.playersRecords.playerTwoGamesWon += 1
+      const updatedScores = {
+        playerOneGamesLost: this.playersRecords.playerOneGamesLost,
+        playerTwoGamesWon: this.playersRecords.playerTwoGamesWon
+      }
+      this.handleUpdate(updatedScores)
       this.shuffleCards()
       this.splitCards()
     })
@@ -112,9 +116,13 @@ export default {
     eventBus.$on('player-two-loses-game', () => {
       this.gameWinner = 'Player One Wins The Game!'
       this.start = false
-      this.playerTwoGamesLost += 1
-      this.playerOneGamesWon += 1
-      // this.handleUpdate()
+      this.playersRecords.playerTwoGamesLost += 1
+      this.playersRecords.playerOneGamesWon += 1
+      const updatedScores = {
+        playerTwoGamesLost: this.playersRecords.playerTwoGamesLost,
+        playerOneGamesWon: this.playersRecords.playerOneGamesWon
+      }
+      this.handleUpdate(updatedScores)
       this.shuffleCards()
       this.splitCards()
     })
@@ -127,9 +135,11 @@ export default {
       .then(playersRecords => this.playersRecords = playersRecords[0])
     },
     //
-    // handleUpdate(){
-    //   PlayersService.updatePlayers(this.playersRecords, this.playersRecords._id)
-    // },
+    handleUpdate(updatedScores){
+      // console.log(this.playersRecords, this.playersRecords._id)
+      PlayersService.updatePlayers(updatedScores, this.playersRecords._id)
+      .then(result => console.log(result))
+    },
 
     startGame() {
       this.start = true

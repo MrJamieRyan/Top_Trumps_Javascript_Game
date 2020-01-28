@@ -1,6 +1,8 @@
 <template>
   <div class="card-container">
-    <div :class="winningPlayer === 'player-two' || winningPlayer === 'bothCardsShowing' ? 'card-up' : 'card-down'" >
+    <div
+    v-if="winningPlayer === 'player-two' || winningPlayer === 'bothCardsShowing'"
+    class="card-up">
       <br>
       <p>Breed: {{playerTwoCards[0].name}}</p>
       <img id="catpic" src="../../public/images/Cat.jpg" >
@@ -23,6 +25,10 @@
         {{key}}: {{value}}
 
       </p>
+    </div>
+    <div
+    v-if="winningPlayer === '' || winningPlayer === 'player-one'"
+    class="card-down">
     </div>
     <div>
       <p>Cards: {{this.playerTwoCards.length}}</p>

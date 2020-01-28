@@ -1,9 +1,10 @@
 <template>
   <div class="card-container">
     <div :class="winningPlayer === 'player-two' || winningPlayer === 'bothCardsShowing' ? 'card-up' : 'card-down'" >
-      <p>PLAYER TWO</p>
-      <img id="catpic" src="../../public/images/Cat.jpg" >
+      <br>
       <p>Breed: {{playerTwoCards[0].name}}</p>
+      <img id="catpic" src="../../public/images/Cat.jpg" >
+
 
       <p
 

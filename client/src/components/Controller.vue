@@ -3,15 +3,17 @@
     <div class="start-game"> <button id="start-button" v-on:click="startGame">Start Game</button> </div>
     <div class="scores">
       <div class="player-one-scores">
-        <p>P1 wins: {{playersRecords.playerOneGamesWon}}</p>
-        <p>P1 losses: {{playersRecords.playerOneGamesLost}}</p>
+        <p>Player 1</p>
+        <p>Wins: {{playersRecords.playerOneGamesWon}}</p>
+        <p>Losses: {{playersRecords.playerOneGamesLost}}</p>
       </div>
       <div class="player-two-scores">
-        <p>P2 wins: {{playersRecords.playerTwoGamesWon}}</p>
-        <p>P2 losses: {{playersRecords.playerTwoGamesLost}}</p>
+        <p>Player 2</p>
+        <p>Wins: {{playersRecords.playerTwoGamesWon}}</p>
+        <p>Losses: {{playersRecords.playerTwoGamesLost}}</p>
       </div>
     </div>
-    <div>
+    <div class="winning-statement">
       <h1>{{winningPlayerStatement}}</h1>
     </div>
     <div class="players-wrapper">
@@ -296,5 +298,9 @@ p.not-clickable {
 
 .property {
   cursor: pointer;
+}
+
+.selected {
+  border: 2px dotted red;
 }
 </style>

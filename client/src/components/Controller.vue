@@ -59,7 +59,7 @@ export default {
   },
 
   mounted(){
-
+    this.fetchPlayers()
     this.shuffleCards()
     this.splitCards()
 
@@ -144,7 +144,7 @@ export default {
     startGame() {
       this.start = true
       this.gameWinner = ''
-      this.fetchPlayers()
+
     },
 
     splitCards(){

@@ -229,11 +229,7 @@ body {
   box-shadow:
   /* Top layer shadow */ 0 1px 1px rgba(0, 0, 0, 0.15),
     /* Second layer */ 0 10px 0 -5px #7E57C2,
-    /* Second layer shadow */ 0 10px 1px -4px rgba(0, 0, 0, 0.15),
-    /* Third layer */ 0 20px 0 -10px #7E57C2,
-    /* Third layer shadow */ 0 20px 1px -9px rgba(0, 0, 0, 0.15),
-    /* Shadow at bottom */ 0 8px 16px 0 rgba(0, 0, 0, 0.2),
-    0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    /* Second layer shadow */ 0 10px 1px -4px rgba(0, 0, 0, 0.15);
   width: 20vw;
   height: 30vw;
   border-radius: 10px;
@@ -247,11 +243,7 @@ body {
   box-shadow:
     /* Top layer shadow */ 0 1px 1px rgba(0, 0, 0, 0.15),
     /* Second layer */ 0 10px 0 -5px #7E57C2,
-    /* Second layer shadow */ 0 10px 1px -4px rgba(0, 0, 0, 0.15),
-    /* Third layer */ 0 20px 0 -10px #7E57C2,
-    /* Third layer shadow */ 0 20px 1px -9px rgba(0, 0, 0, 0.15),
-    /* Shadow at bottom */ 0 8px 16px 0 rgba(0, 0, 0, 0.15),
-    0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    /* Second layer shadow */ 0 10px 1px -4px rgba(0, 0, 0, 0.15);
   width: 20vw;
   height: 30vw;
   border-radius: 10px;

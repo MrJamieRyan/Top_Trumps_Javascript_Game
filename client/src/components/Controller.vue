@@ -169,7 +169,7 @@ export default {
 <style>
 #start-button {
   font-family: "Kanit", sans-serif;
-  border: 4px solid #4caf50;
+  border: 4px solid #00897B;
   background-color: white;
   color: #4caf50;
   padding: 14px 28px;
@@ -179,7 +179,8 @@ export default {
 }
 #start-button:hover {
   font-family: "Kanit", sans-serif;
-  background-color: #4caf50;
+  border: 4px solid;
+  background-color: #00897B;
   color: white;
   box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
@@ -204,13 +205,14 @@ export default {
 }
 
 .card-down {
-  color: #6a0dad;
-  background-color: #6a0dad;
+  color: #7E57C2;
+  border: 1px;
+  background-color: #7E57C2;
   box-shadow:
   /* Top layer shadow */ 0 1px 1px rgba(0, 0, 0, 0.15),
-    /* Second layer */ 0 10px 0 -5px #6a0dad,
+    /* Second layer */ 0 10px 0 -5px #7E57C2,
     /* Second layer shadow */ 0 10px 1px -4px rgba(0, 0, 0, 0.15),
-    /* Third layer */ 0 20px 0 -10px #6a0dad,
+    /* Third layer */ 0 20px 0 -10px #7E57C2,
     /* Third layer shadow */ 0 20px 1px -9px rgba(0, 0, 0, 0.15),
     /* Shadow at bottom */ 0 8px 16px 0 rgba(0, 0, 0, 0.2),
     0 6px 20px 0 rgba(0, 0, 0, 0.19);
@@ -221,7 +223,7 @@ export default {
 }
 
 .card-up {
-  color: #6a0dad;
+  color: #6200ee;
   font-size: 20px;
   background: #eee;
   box-shadow:
@@ -256,20 +258,22 @@ p.not-clickable {
 }
 
 .player-one-scores {
-  background-color: red;
+  border: 4px solid #C62828;
   width: 20vw;
   place-self: center;
+  box-shadow: 5px 10px;
 }
 
 .player-two-scores {
-  background-color: blue;
+  border: 4px solid #5C6BC0;
   width: 20vw;
   place-self: center;
+  box-shadow: 5px 10px;
 }
 
 .winning-statement {
   text-align: center;
-  font-size: 20px;
+  font-size: 15px;
   height: 40px;
   place-self: center;
 }

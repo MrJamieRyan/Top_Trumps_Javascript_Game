@@ -16,31 +16,38 @@ export default {
       [
   {
     name: "Abyssinian",
-    size:2,
-    rarity:4,
-    temper:2
+    playableProperties: {
+      size:2,
+      rarity:4,
+      temper:2
+    }
 
   },
   {
     name: "American Bobtail",
-    size:4,
-    rarity:6,
-    temper:4
+    playableProperties: {
+      size:4,
+      rarity:6,
+      temper:4
+    }
 
   },
   {
     name: "American Curl",
-    size:2,
-    rarity:7,
-    temper:5
+    playableProperties: {
+      size:2,
+      rarity:7,
+      temper:5
+    }
 
   },
   {
     name: "Balinese (aka Javanese)",
-    size:3,
-    rarity:8,
-    temper:4
-
+    playableProperties: {
+      size:3,
+      rarity:8,
+      temper:4
+    }
   }
   // ,
   // {

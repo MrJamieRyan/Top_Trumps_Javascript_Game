@@ -71,7 +71,7 @@ export default {
       this.selectedProperty = payload[1]
 
 
-      if(this.cardsUpForGrabs[0][this.selectedProperty] > this.cardsUpForGrabs[1][this.selectedProperty]){
+      if(this.cardsUpForGrabs[0].playableProperties[this.selectedProperty] > this.cardsUpForGrabs[1].playableProperties[this.selectedProperty]){
         eventBus.$emit('player-one-wins', this.cardsUpForGrabs)
         this.cardsUpForGrabs = []
         this.winningPlayer = 'bothCardsShowing'
@@ -81,7 +81,7 @@ export default {
           this.selectedProperty = ''}, 3000)
       }
 
-      else if(this.cardsUpForGrabs[0][this.selectedProperty] === this.cardsUpForGrabs[1][this.selectedProperty]){
+      else if(this.cardsUpForGrabs[0].playableProperties[this.selectedProperty] === this.cardsUpForGrabs[1].playableProperties[this.selectedProperty]){
         let lastWinningPlayer = this.winningPlayer
         this.winningPlayer = 'bothCardsShowing'
         this.winningPlayerStatement = "It's a draw!"

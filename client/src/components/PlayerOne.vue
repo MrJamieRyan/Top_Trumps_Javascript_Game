@@ -13,7 +13,7 @@
 
       v-on:click="handleClick(key)"
 
-      v-for="(value, key) in playerOneCards[0]"
+      v-for="(value, key) in playerOneCards[0].playableProperties"
 
       v-if="key !== 'name'"
 

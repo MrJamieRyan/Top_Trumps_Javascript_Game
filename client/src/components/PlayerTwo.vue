@@ -15,7 +15,7 @@
 
       v-on:click="handleClick(key.toLowerCase())"
 
-      v-for="(value, key) in playerTwoCards[0]"
+      v-for="(value, key) in playerTwoCards[0].playableProperties"
 
       v-if="key !== 'name'"
       >

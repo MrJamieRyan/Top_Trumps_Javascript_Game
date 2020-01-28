@@ -7,8 +7,7 @@
 
       <p
 
-      class="property"
-      :id="key"
+      :class="selectedProperty === key ? 'selected' : 'property' "
 
       v-on:click="handleClick(key)"
 
@@ -35,7 +34,7 @@
 import {eventBus} from "../main.js"
 export default {
   name: 'player-one',
-  props: ['cards', 'winningPlayer'],
+  props: ['cards', 'winningPlayer', 'selectedProperty'],
   data(){
     return {
       playerOneCards: this.cards.slice()

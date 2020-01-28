@@ -6,8 +6,9 @@
       <p>Breed: {{playerTwoCards[0].name}}</p>
 
       <p
-      class="property"
-      :id="key"
+
+      :class="selectedProperty === key ? 'selected' : 'property' "
+
 
       v-on:click="handleClick(key.toLowerCase())"
 
@@ -32,7 +33,7 @@
 import {eventBus} from "../main.js"
 export default {
   name: 'player-two',
-  props: ['cards', 'winningPlayer'],
+  props: ['cards', 'winningPlayer', 'selectedProperty'],
   data(){
     return {
       playerTwoCards: this.cards.slice()

@@ -15,8 +15,8 @@
       <h1>{{winningPlayerStatement}}</h1>
     </div>
     <div class="players-wrapper">
-      <player-one v-if="start" :cards="playerOneCardsDealt" :winningPlayer="winningPlayer" />
-      <player-two v-if="start" :cards="playerTwoCardsDealt" :winningPlayer="winningPlayer" />
+      <player-one v-if="start" :cards="playerOneCardsDealt" :winningPlayer="winningPlayer" :selectedProperty="selectedProperty"/>
+      <player-two v-if="start" :cards="playerTwoCardsDealt" :winningPlayer="winningPlayer" :selectedProperty="selectedProperty"/>
     </div>
     <div v-if="gameWinner !== ''">
       <h1>{{gameWinner}}</h1>
@@ -44,7 +44,7 @@ export default {
       playerTwoCardsDealt: [],
       start: false,
       cardsUpForGrabs: [],
-      selectedProperty: null,
+      selectedProperty: '',
       winningPlayer: '',
       winningPlayerStatement: '',
       gameWinner: '',
@@ -75,7 +75,8 @@ export default {
         this.winningPlayer = 'bothCardsShowing'
         this.winningPlayerStatement = 'Player One Wins This Round!'
         setTimeout(() => {this.winningPlayer = 'player-one';
-          this.winningPlayerStatement = ''}, 3000)
+          this.winningPlayerStatement = ''
+          this.selectedProperty = ''}, 3000)
       }
 
       else if(this.cardsUpForGrabs[0][this.selectedProperty] === this.cardsUpForGrabs[1][this.selectedProperty]){
@@ -83,7 +84,8 @@ export default {
         this.winningPlayer = 'bothCardsShowing'
         this.winningPlayerStatement = "It's a draw!"
         setTimeout(() => {this.winningPlayer = lastWinningPlayer;
-          this.winningPlayerStatement = ''}, 3000)
+          this.winningPlayerStatement = ''
+          this.selectedProperty = ''}, 3000)
       }
 
       else
@@ -94,7 +96,8 @@ export default {
         this.winningPlayer = 'bothCardsShowing'
         this.winningPlayerStatement = 'Player Two Wins This Round!'
         setTimeout(() => {this.winningPlayer = 'player-two';
-          this.winningPlayerStatement = ''}, 3000)
+          this.winningPlayerStatement = '';
+          this.selectedProperty = ''}, 3000)
       }
 
     } )
@@ -241,6 +244,10 @@ p.not-clickable {
 
 .property {
   cursor: pointer;
+}
+
+.selected {
+  border: 2px dotted red;
 }
 
 </style>

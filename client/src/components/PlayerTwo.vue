@@ -4,8 +4,8 @@
     v-if="winningPlayer === 'player-two' || winningPlayer === 'bothCardsShowing'"
     class="card-up">
       <br>
-      <p>Breed: {{playerTwoCards[0].name}}</p>
-      <img id="catpic" :src="playerTwoCards[0].imageURL" >
+      <p>{{playerTwoCards[0].name}}</p>
+      <img class="deck-image" :src="playerTwoCards[0].imageURL" >
 
 
       <p

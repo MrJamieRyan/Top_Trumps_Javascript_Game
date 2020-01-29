@@ -1,11 +1,12 @@
 <template>
   <div>
-    <h1>Deck Selection</h1>
-    <ul>
-      <li v-on:click="handleDeckSelect(index)" v-for="(deck, index) in decks">{{deck.name}}</li>
+    <h1 class="main-header">Top Trumps</h1>
+    <h2 class="main-header">Deck Selection</h2>
+    <ul class="deck-wrapper">
+      <li class="flex-decks" v-on:click="handleDeckSelect(index)" v-for="(deck, index) in decks">{{deck.name}}</li>
     </ul>
-    <h1>Game Selection</h1>
-    <ul>
+    <h2 class="main-header">Game Selection</h2>
+    <ul class="game-type-wrapper">
       <li v-on:click="handleGameSelect('player-player')"  >Player 1 vs Player 2</li>
       <li v-on:click="handleGameSelect('player-computer')" >Player 1 vs Computer</li>
     </ul>

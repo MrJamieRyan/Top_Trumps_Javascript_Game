@@ -1,6 +1,14 @@
 <template>
   <div>
     <div class="start-game"> <button id="start-button" v-on:click="startGame">Start Game</button> </div>
+    <div class="winning-statement">
+      <h1>{{winningPlayerStatement}}</h1>
+    </div>
+    <div class="players-wrapper">
+      <player-one v-if="start" :cards="playerOneCardsDealt" :winningPlayer="winningPlayer" :selectedProperty="selectedProperty"/>
+      <player-two v-if="start && gameType === 'player-player'" :cards="playerTwoCardsDealt" :winningPlayer="winningPlayer" :selectedProperty="selectedProperty"/>
+      <player-computer v-if="start && gameType === 'player-computer'" :cards="playerTwoCardsDealt" :winningPlayer="winningPlayer" :selectedProperty="selectedProperty"/>
+    </div>
     <div class="scores">
       <div class="player-one-scores">
         <p>Player 1</p>
@@ -12,14 +20,6 @@
         <p>Wins: {{playersRecords.playerTwoGamesWon}}</p>
         <p>Losses: {{playersRecords.playerTwoGamesLost}}</p>
       </div>
-    </div>
-    <div class="winning-statement">
-      <h1>{{winningPlayerStatement}}</h1>
-    </div>
-    <div class="players-wrapper">
-      <player-one v-if="start" :cards="playerOneCardsDealt" :winningPlayer="winningPlayer" :selectedProperty="selectedProperty"/>
-      <player-two v-if="start && gameType === 'player-player'" :cards="playerTwoCardsDealt" :winningPlayer="winningPlayer" :selectedProperty="selectedProperty"/>
-      <player-computer v-if="start && gameType === 'player-computer'" :cards="playerTwoCardsDealt" :winningPlayer="winningPlayer" :selectedProperty="selectedProperty"/>
     </div>
     <div v-if="gameWinner !== ''">
       <h1>{{gameWinner}}</h1>
@@ -257,8 +257,9 @@ p.not-clickable {
   pointer-events: none;
 }
 
-#catpic {
-  width: 80%;
+.deck-image {
+  height: 30%;
+  width: auto;
 }
 
 .property-selected {
@@ -296,7 +297,32 @@ p.not-clickable {
   cursor: pointer;
 }
 
+button:focus {
+  outline:0;
+}
+
 .selected {
   border: 2px dotted red;
+}
+
+.deck-wrapper{
+  display: flex;
+  list-style-type: none;
+  justify-content: center;
+}
+
+.game-type-wrapper {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  list-style-type: none;
+}
+
+.main-header {
+  text-align: center;
+}
+
+.flex-decks {
+  border: 2px solid black;
+  margin: 20px;
 }
 </style>

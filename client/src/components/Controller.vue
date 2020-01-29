@@ -18,7 +18,7 @@
     </div>
     <div class="players-wrapper">
       <player-one v-if="start" :cards="playerOneCardsDealt" :winningPlayer="winningPlayer" :selectedProperty="selectedProperty"/>
-      <player-two v-if="start" :cards="playerTwoCardsDealt" :winningPlayer="winningPlayer" :selectedProperty="selectedProperty"/>
+      <player-computer v-if="start" :cards="playerTwoCardsDealt" :winningPlayer="winningPlayer" :selectedProperty="selectedProperty"/>
     </div>
     <div v-if="gameWinner !== ''">
       <h1>{{gameWinner}}</h1>
@@ -30,6 +30,7 @@
 
 import PlayersService from "../../services/PlayersService.js"
 import { eventBus } from "../main.js";
+import PlayerComputer from "./PlayerComputer.vue";
 import PlayerOne from "./PlayerOne.vue";
 import PlayerTwo from "./PlayerTwo.vue";
 export default {
@@ -37,7 +38,8 @@ export default {
   props: ["cards"],
   components: {
     "player-one": PlayerOne,
-    "player-two": PlayerTwo
+    "player-two": PlayerTwo,
+    "player-computer": PlayerComputer
   },
 
   data(){
@@ -83,6 +85,7 @@ export default {
 
       else if(this.cardsUpForGrabs[0].playableProperties[this.selectedProperty] === this.cardsUpForGrabs[1].playableProperties[this.selectedProperty]){
         let lastWinningPlayer = this.winningPlayer
+        eventBus.$emit('round-drawn', lastWinningPlayer)
         this.winningPlayer = 'bothCardsShowing'
         this.winningPlayerStatement = "It's a draw!"
         setTimeout(() => {this.winningPlayer = lastWinningPlayer;

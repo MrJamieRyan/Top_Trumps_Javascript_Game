@@ -28,7 +28,7 @@
 <script>
 import {eventBus} from "../main.js"
 export default {
-  name: 'player-two',
+  name: 'player-computer',
   props: ['cards', 'winningPlayer', 'selectedProperty'],
   data(){
     return {

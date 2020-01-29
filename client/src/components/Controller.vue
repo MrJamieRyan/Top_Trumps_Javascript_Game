@@ -18,7 +18,8 @@
     </div>
     <div class="players-wrapper">
       <player-one v-if="start" :cards="playerOneCardsDealt" :winningPlayer="winningPlayer" :selectedProperty="selectedProperty"/>
-      <player-computer v-if="start" :cards="playerTwoCardsDealt" :winningPlayer="winningPlayer" :selectedProperty="selectedProperty"/>
+      <player-two v-if="start && gameType === 'player-player'" :cards="playerTwoCardsDealt" :winningPlayer="winningPlayer" :selectedProperty="selectedProperty"/>
+      <player-computer v-if="start && gameType === 'player-computer'" :cards="playerTwoCardsDealt" :winningPlayer="winningPlayer" :selectedProperty="selectedProperty"/>
     </div>
     <div v-if="gameWinner !== ''">
       <h1>{{gameWinner}}</h1>
@@ -35,7 +36,7 @@ import PlayerOne from "./PlayerOne.vue";
 import PlayerTwo from "./PlayerTwo.vue";
 export default {
   name: "controller",
-  props: ["cards"],
+  props: ["cards", "gameType"],
   components: {
     "player-one": PlayerOne,
     "player-two": PlayerTwo,

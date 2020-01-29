@@ -301,6 +301,29 @@ button:focus {
   outline:0;
 }
 
+.game-selected{
+  text-align: center;
+}
+
+.game-selected > button{
+  font-family: "Kanit", sans-serif;
+  border: 4px solid #00897B;
+  background-color: white;
+  color: #4caf50;
+  padding: 14px 28px;
+  font-size: 16px;
+  cursor: pointer;
+  margin: 20px;
+}
+
+.game-selected > button:hover{
+  font-family: "Kanit", sans-serif;
+  border: 4px solid;
+  background-color: #00897B;
+  color: white;
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
 .selected {
   border: 2px dotted red;
 }
@@ -309,12 +332,27 @@ button:focus {
   display: flex;
   list-style-type: none;
   justify-content: center;
+  padding-inline-start: 0;
 }
 
 .game-type-wrapper {
   display: grid;
   grid-template-columns: 1fr 1fr;
   list-style-type: none;
+  justify-content: center;
+  padding-inline-start: 0px;
+}
+
+.game-type-wrapper > li {
+  text-align: center;
+  width: 100px;
+  height: 50px;
+  border: 2px solid black;
+  place-self: center;
+  padding: 10px;
+  padding-top: 20px;
+  box-shadow: 10px 10px 5px 0px;
+  
 }
 
 .main-header {
@@ -324,5 +362,8 @@ button:focus {
 .flex-decks {
   border: 2px solid black;
   margin: 20px;
+  box-shadow: 10px 10px 5px 0px;
+  width: 200px;
+  height: 300px;
 }
 </style>

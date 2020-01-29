@@ -13,6 +13,7 @@ db.players.insertMany([
 db.decks.insertMany([
   {
     name: 'Cats',
+    deckImageURL: 'https://i.ibb.co/zX7sm5d/IMG-20200129-114611.jpg',
     deck: [
       {
         name: 'Abyssinian',
@@ -290,6 +291,7 @@ db.decks.insertMany([
   ,
   {
     name: "skyscrapers",
+    deckImageURL: 'https://i.ibb.co/MGTzz80/skyscraper-card-back.jpg',
     deck: [
   {
      name:"John Hancock Center, Chicago IL",
@@ -564,6 +566,7 @@ playableProperties:{     height:876,
   }
   ,
   {name: "Simpsons",
+  deckImageURL: 'https://i.ibb.co/LYZtkfJ/top-right.jpg',
   deck: [
     {
       name: "Bart Simpson",

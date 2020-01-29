@@ -65,9 +65,9 @@ export default {
     this.splitCards()
 
     eventBus.$on('both-cards-sent', (payload) => {
-      this.cardsUpForGrabs.unshift(payload[2])
-      this.cardsUpForGrabs.unshift(payload[0])
-      this.selectedProperty = payload[1]
+      this.cardsUpForGrabs.unshift(payload.playerTwoCard)
+      this.cardsUpForGrabs.unshift(payload.playerOneCard)
+      this.selectedProperty = payload.property
 
 
       if(this.cardsUpForGrabs[0].playableProperties[this.selectedProperty] > this.cardsUpForGrabs[1].playableProperties[this.selectedProperty]){
@@ -139,9 +139,8 @@ export default {
       PlayersService.getPlayers()
       .then(playersRecords => this.playersRecords = playersRecords[0])
     },
-    //
+    
     handleUpdate(updatedScores){
-      // console.log(this.playersRecords, this.playersRecords._id)
       PlayersService.updatePlayers(updatedScores, this.playersRecords._id)
       .then(result => console.log(result))
     },
@@ -163,12 +162,10 @@ export default {
     },
 
     shuffleCards(){
-
       for (let i = this.cards.length - 1; i > 0; i--) {
         const j = Math.floor(Math.random() * (i + 1));
         [this.cards[i], this.cards[j]] = [this.cards[j], this.cards[i]];
       }
-
     }
 
 

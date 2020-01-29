@@ -6,31 +6,16 @@
       <br>
       <p class="property"><span>{{playerTwoCards[0].name}}</span></p>
       <img class="deck-image" :src="playerTwoCards[0].imageURL" >
-
-
-      <p
-
-      :class="selectedProperty === key ? 'selected' : 'property' "
-
-
+      <p :class="selectedProperty === key ? 'selected' : 'property' "
       v-on:click="handleClick(key.toLowerCase())"
-
-      v-for="(value, key) in playerTwoCards[0].playableProperties"
-
-      v-if="key !== 'name'"
-      >
-
-      <!-- :class="winningPlayer === 'player-one' || winningPlayer === 'bothCardsShowing' ? 'not-clickable' : ''" -->
-
+      v-for="(value, key) in playerTwoCards[0].playableProperties" >
         <span>{{key}}: {{value}}</span>
-
       </p>
     </div>
     <div
     v-if="winningPlayer === '' || winningPlayer === 'player-one'"
     class="card-down">
     </div>
-
     <div class="cards-left">
       <p>Cards In Deck: {{this.playerTwoCards.length}}</p>
     </div>
@@ -58,7 +43,7 @@ export default {
   mounted(){
 
     eventBus.$on('playerone-property-selected', (payload) => {
-      payload[2] = this.playerTwoCards[0]
+      payload.playerTwoCard = this.playerTwoCards[0]
       eventBus.$emit('both-cards-sent', payload)
       setTimeout(() => this.playerTwoCards.shift(), 3000)
     })
@@ -69,16 +54,12 @@ export default {
           this.playerTwoCards.push(card)
         }
       }, 3000)
-
-
     })
   },
+  
   methods: {
     handleClick(property){
-      // let targetProperty = document.getElementById(property).lastElementChild
-      // targetProperty.classList.add('property-selected')
-      // setTimeout(() => targetProperty.classList.remove('property-selected'), 3000)
-      eventBus.$emit('playertwo-property-selected', [this.playerTwoCards[0], property] )
+      eventBus.$emit('playertwo-property-selected', {playerTwoCard: this.playerTwoCards[0], property: property} )
       setTimeout(() => this.playerTwoCards.shift(), 3000)
     }
   }

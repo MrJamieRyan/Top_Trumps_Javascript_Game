@@ -12,7 +12,7 @@
 
       v-for="(value, key) in playerTwoCards[0].playableProperties"
       >
-        {{key}}: {{value}}
+        <span>{{key}}: {{value}}</span>
       </p>
     </div>
     <div

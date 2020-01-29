@@ -21,7 +21,7 @@
 
         <!-- :class="winningPlayer === 'player-two'|| winningPlayer === 'bothCardsShowing' ? 'not-clickable' : ''" -->
 
-        {{key}}: {{value}}
+        <span>{{key}}: {{value}}</span>
 
       </p>
 

@@ -330,8 +330,10 @@ button:focus {
   box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
-.selected {
-  border: 2px dotted red;
+.selected > span {
+  background-color: #c97951;
+  color: #1f1f1f;
+  font-family: 'Raleway', sans-serif;
 }
 
 .deck-wrapper{

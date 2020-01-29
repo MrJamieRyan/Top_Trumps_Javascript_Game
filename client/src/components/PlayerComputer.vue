@@ -4,12 +4,12 @@
     v-if="winningPlayer === 'player-two' || winningPlayer === 'bothCardsShowing'"
     class="card-up">
       <br>
-      <p>Breed: {{playerTwoCards[0].name}}</p>
-      <img id="catpic" src="../../public/images/Cat.jpg" >
+      <p>{{playerTwoCards[0].name}}</p>
+      <img class="deck-image" :src="playerTwoCards[0].imageURL" >
 
       <p
       :class="selectedProperty === key ? 'selected' : 'property' "
-      v-on:click="handleClick(key.toLowerCase())"
+
       v-for="(value, key) in playerTwoCards[0].playableProperties"
       >
         {{key}}: {{value}}

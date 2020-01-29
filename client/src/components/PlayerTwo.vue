@@ -4,7 +4,7 @@
     v-if="winningPlayer === 'player-two' || winningPlayer === 'bothCardsShowing'"
     class="card-up">
       <br>
-      <p>{{playerTwoCards[0].name}}</p>
+      <p class="property">{{playerTwoCards[0].name}}</p>
       <img class="deck-image" :src="playerTwoCards[0].imageURL" >
 
 
@@ -30,9 +30,11 @@
     v-if="winningPlayer === '' || winningPlayer === 'player-one'"
     class="card-down">
     </div>
-    <div>
-      <p>Cards: {{this.playerTwoCards.length}}</p>
+
+    <div class="cards-left">
+      <p>Cards In Deck: {{this.playerTwoCards.length}}</p>
     </div>
+
   </div>
 </template>
 
@@ -84,5 +86,6 @@ export default {
 </script>
 
 <style>
+
 
 </style>

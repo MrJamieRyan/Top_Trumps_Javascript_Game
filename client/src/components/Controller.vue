@@ -10,15 +10,11 @@
       <player-computer v-if="start && gameType === 'player-computer'" :cards="playerTwoCardsDealt" :winningPlayer="winningPlayer" :selectedProperty="selectedProperty"/>
     </div>
     <div class="scores">
-      <div class="player-one-scores">
-        <p>Player 1</p>
-        <p>Wins: {{playersRecords.playerOneGamesWon}}</p>
-        <p>Losses: {{playersRecords.playerOneGamesLost}}</p>
+      <div v-if="start" class="player-one-scores">
+        <p>Player 1 (Wins: {{playersRecords.playerTwoGamesWon}} Losses: {{playersRecords.playerTwoGamesLost}})</p>
       </div>
-      <div class="player-two-scores">
-        <p>Player 2</p>
-        <p>Wins: {{playersRecords.playerTwoGamesWon}}</p>
-        <p>Losses: {{playersRecords.playerTwoGamesLost}}</p>
+      <div v-if="start" class="player-two-scores">
+        <p>Player 2 (Wins: {{playersRecords.playerTwoGamesWon}} Losses: {{playersRecords.playerTwoGamesLost}})</p>
       </div>
     </div>
     <div v-if="gameWinner !== ''">
@@ -227,17 +223,18 @@ body {
 }
 
 .card-down {
-  color: #7E57C2;
+  color: #197278;
   border: 1px;
-  background-color: #7E57C2;
+  background-color: #197278;
   box-shadow:
   /* Top layer shadow */ 0 1px 1px rgba(0, 0, 0, 0.15),
-    /* Second layer */ 0 10px 0 -5px #7E57C2,
+    /* Second layer */ 0 10px 0 -5px #197278,
     /* Second layer shadow */ 0 10px 1px -4px rgba(0, 0, 0, 0.15);
   width: 20vw;
   height: 30vw;
   border-radius: 10px;
   user-select: none;
+  border: 1px solid black;
 }
 
 .card-up {
@@ -246,11 +243,12 @@ body {
   background: #eee;
   box-shadow:
     /* Top layer shadow */ 0 1px 1px rgba(0, 0, 0, 0.15),
-    /* Second layer */ 0 10px 0 -5px #7E57C2,
+    /* Second layer */ 0 10px 0 -5px #197278,
     /* Second layer shadow */ 0 10px 1px -4px rgba(0, 0, 0, 0.15);
   width: 20vw;
   height: 30vw;
   border-radius: 10px;
+    border: 1px solid black;
 }
 
 p.not-clickable {
@@ -273,17 +271,21 @@ p.not-clickable {
 }
 
 .player-one-scores {
-  border: 4px solid #C62828;
-  background-color: lightgray;
-  width: 20vw;
+
+  background-color: orange;
   place-self: center;
 }
 
+.player-one-scores > p {
+
+  margin: 0px
+}
+
 .player-two-scores {
-  border: 4px solid #5C6BC0;
-  background-color: lightgray;
-  width: 20vw;
+
+  background-color: orange  ;
   place-self: center;
+
 }
 
 .winning-statement {
@@ -295,7 +297,11 @@ p.not-clickable {
 
 .property {
   cursor: pointer;
+  color: #1f1f1f;
+  font-family: 'Raleway', sans-serif;
+  font-weight: bold;
 }
+
 
 button:focus {
   outline:0;
@@ -357,6 +363,14 @@ button:focus {
 
 }
 
+.game-type-wrapper > li:hover {
+  cursor: pointer;
+}
+
+.flex-decks:hover{
+  cursor: pointer;
+}
+
 .game-type-wrapper > li:first-child{
   place-self: end;
 }
@@ -383,10 +397,17 @@ button:focus {
   grid-template-rows: 8fr 1fr;
   grid-gap: 10px;
   margin-top: 20px;
-  border-radius: 12px;  
+  border-radius: 12px;
 }
 
 .flex-decks > p{
  text-align: center
 }
+
+.cards-left > p {
+  font-size: 20px;
+  margin: 40px;
+  color: #C44536;
+}
+
 </style>

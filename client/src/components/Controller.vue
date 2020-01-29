@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="start-game"> <button id="start-button" v-on:click="startGame">Start Game</button> </div>
+    <div class="start-game"> <button class="start-button" v-on:click="startGame">Start Game</button> </div>
     <div class="winning-statement">
       <h1>{{winningPlayerStatement}}</h1>
     </div>
@@ -11,13 +11,13 @@
     </div>
     <div class="scores">
       <div v-if="start" class="player-one-scores">
-        <p>Player 1 (Wins: {{playersRecords.playerTwoGamesWon}} Losses: {{playersRecords.playerTwoGamesLost}})</p>
+        <p>Player 1 (Wins: {{playersRecords.playerOneGamesWon}} Losses: {{playersRecords.playerOneGamesLost}})</p>
       </div>
       <div v-if="start" class="player-one-scores">
         <p>Player 2 (Wins: {{playersRecords.playerTwoGamesWon}} Losses: {{playersRecords.playerTwoGamesLost}})</p>
       </div>
     </div>
-    <div v-if="gameWinner !== ''">
+    <div class="winning-statement" v-if="gameWinner !== ''">
       <h1>{{gameWinner}}</h1>
     </div>
   </div>
@@ -179,32 +179,36 @@ export default {
 
 <style>
 
+
 body {
-  background-color: lightgray;
+  background-color: #f5e9e1;
+  font-family: 'Bowlby One SC', cursive;
+  color: #283D3B;
+  letter-spacing: 1px;
 }
 
-#start-button {
-  font-family: "Kanit", sans-serif;
-  border: 4px solid #00897B;
-  background-color: white;
-  color: #4caf50;
+.start-button {
+  letter-spacing: 1px;
+  border: 2px solid black;
+  background-color: #43BBF2;
+  color: #eee;
   padding: 14px 28px;
   font-size: 16px;
   cursor: pointer;
   margin: 20px;
+  font-family: 'Bowlby One SC', cursive;
+  border-radius: 5px;
 }
 
-#start-button:hover {
-  font-family: "Kanit", sans-serif;
-  border: 4px solid;
-  background-color: #00897B;
-  color: white;
+.start-button:hover {
+  letter-spacing: 1px;
+  border: 2px solid #43BBF2;
+  background-color: #eee;
+  color: #283D3B;
   box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  font-family: 'Bowlby One SC', cursive;
 }
 
-* {
-  font-family: "Kanit", sans-serif;
-}
 
 .start-game {
   text-align: center;
@@ -240,7 +244,7 @@ body {
 .card-up {
   color: #6200ee;
   font-size: 20px;
-  background: #eee;
+  background: #EFC45F;
   box-shadow:
     /* Top layer shadow */ 0 1px 1px rgba(0, 0, 0, 0.15),
     /* Second layer */ 0 10px 0 -5px #197278,
@@ -258,6 +262,7 @@ p.not-clickable {
 .deck-image {
   height: 30%;
   width: auto;
+  border-radius: 10px;
 }
 
 .property-selected {
@@ -278,7 +283,7 @@ p.not-clickable {
 
 .player-one-scores > p {
 
-  margin: 0px
+  margin-top: 0px
 }
 
 .player-two-scores {
@@ -293,12 +298,13 @@ p.not-clickable {
   font-size: 15px;
   height: 40px;
   place-self: center;
+  color: #C44536;
 }
 
 .property >span {
   cursor: pointer;
   color: #1f1f1f;
-  font-family: 'Raleway', sans-serif;
+  font-family: 'Bitter', serif;
   font-weight: 600;
 }
 
@@ -312,28 +318,31 @@ button:focus {
 }
 
 .game-selected > button{
-  font-family: "Kanit", sans-serif;
-  border: 4px solid #00897B;
-  background-color: white;
-  color: #4caf50;
+  letter-spacing: 1px;
+  border: 2px solid black;
+  background-color: #43BBF2;
+  color: #eee;
   padding: 14px 28px;
   font-size: 16px;
   cursor: pointer;
   margin: 20px;
+  font-family: 'Bowlby One SC', cursive;
+  border-radius: 5px;
 }
 
 .game-selected > button:hover{
-  font-family: "Kanit", sans-serif;
-  border: 4px solid;
-  background-color: #00897B;
-  color: white;
+  letter-spacing: 1px;
+  border: 2px solid #43BBF2;
+  background-color: #eee;
+  color: #283D3B;
   box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  font-family: 'Bowlby One SC', cursive;
 }
 
 .selected > span {
-  background-color: #c97951;
+  background-color: #43BBF2;
   color: #1f1f1f;
-  font-family: 'Raleway', sans-serif;
+  font-family: 'Bitter', serif;
 }
 
 .deck-wrapper{
@@ -356,13 +365,14 @@ button:focus {
 
 .game-type-wrapper > li {
   text-align: center;
-  width: 100px;
-  height: 50px;
+  width: 125px;
+  height: 65px;
   border: 2px solid black;
   padding: 10px;
   padding-top: 20px;
   box-shadow: 10px 10px 5px 0px;
-
+  background-color: #e36556;
+  border-radius: 5px;
 }
 
 .game-type-wrapper > li:hover {

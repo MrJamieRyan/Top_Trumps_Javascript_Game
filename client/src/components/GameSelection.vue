@@ -1,7 +1,7 @@
 <template>
   <div>
     <h1 class="main-header">Top Trumps</h1>
-    <h2 class="title">Deck Selection</h2>
+    <h2 class="title">Select a deck:</h2>
     <ul class="deck-wrapper">
       <li class="flex-decks" v-on:click="handleDeckSelect(index)" v-for="(deck, index) in decks"
       :class="deckSelectedIndex === index ? 'selected-game-option' : '' ">
@@ -9,7 +9,7 @@
         <p>{{deck.name}}</p>
       </li>
     </ul>
-    <h2 class="title">Game Selection</h2>
+    <h2 class="title">Select a game type:</h2>
     <ul class="game-type-wrapper">
       <li v-on:click="handleGameSelect('player-player')"  :class="gameType === 'player-player' ? 'selected-game-option' : '' " >Player 1 vs Player 2</li>
       <li v-on:click="handleGameSelect('player-computer')" :class="gameType === 'player-computer' ? 'selected-game-option' : '' " >Player 1 vs Computer</li>
@@ -59,7 +59,7 @@ export default {
 }
 
 .selected-game-option {
-  border: 4px solid red;
+  border: 4px solid #43BBF2;
 }
 
 </style>

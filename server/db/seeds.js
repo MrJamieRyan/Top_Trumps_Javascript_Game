@@ -290,7 +290,7 @@ db.decks.insertMany([
   }
   ,
   {
-    name: "skyscrapers",
+    name: "Skyscrapers",
     deckImageURL: 'https://i.ibb.co/MGTzz80/skyscraper-card-back.jpg',
     deck: [
   {
@@ -377,7 +377,7 @@ playableProperties:{     height:992,
   {
      name:"Transamerica Pyramid, San Francisco CA",
     Country:"USA",
-imageURL: 'https://ibb.co/7rPZ2VC',
+imageURL: 'https://i.ibb.co/r5Yz4M0/transamerica-pyramid.jpg',
 playableProperties:{     height:853,
     floors:48,
     floorspace:0.5,
@@ -386,7 +386,7 @@ playableProperties:{     height:853,
   {
      name:"Trump World Tower, New York NY",
     Country:"USA",
-imageURL: 'https://i.ibb.co/r5Yz4M0/transamerica-pyramid.jpg',
+imageURL: 'https://i.ibb.co/d7s05pk/trump-world-tower.jpg',
 playableProperties:{     height:861,
     floors:72,
     floorspace:0.9,

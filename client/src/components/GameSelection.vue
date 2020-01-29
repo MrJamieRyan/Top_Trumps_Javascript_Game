@@ -1,14 +1,15 @@
 <template>
   <div>
     <h1 class="main-header">Top Trumps</h1>
-    <h2 class="main-header">Deck Selection</h2>
+    <h2 class="title">Deck Selection</h2>
     <ul class="deck-wrapper">
       <li class="flex-decks" v-on:click="handleDeckSelect(index)" v-for="(deck, index) in decks"
       :class="deckSelectedIndex === index ? 'selected-game-option' : '' ">
-        <img class="deck-image" :src="deck.deckImageURL" >
+        <img class="deck-back" :src="deck.deckImageURL" >
+        <p>{{deck.name}}</p>
       </li>
     </ul>
-    <h2 class="main-header">Game Selection</h2>
+    <h2 class="title">Game Selection</h2>
     <ul class="game-type-wrapper">
       <li v-on:click="handleGameSelect('player-player')"  :class="gameType === 'player-player' ? 'selected-game-option' : '' " >Player 1 vs Player 2</li>
       <li v-on:click="handleGameSelect('player-computer')" :class="gameType === 'player-computer' ? 'selected-game-option' : '' " >Player 1 vs Computer</li>
@@ -51,9 +52,10 @@ export default {
 
 <style scoped>
 
-.deck-image {
+.deck-back {
   width: 200px;
   height: 300px;
+  border-radius: 10px;
 }
 
 .selected-game-option {

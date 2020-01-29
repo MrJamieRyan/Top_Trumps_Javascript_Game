@@ -333,6 +333,7 @@ button:focus {
   list-style-type: none;
   justify-content: center;
   padding-inline-start: 0;
+  margin-top: 0px;
 }
 
 .game-type-wrapper {
@@ -341,6 +342,8 @@ button:focus {
   list-style-type: none;
   justify-content: center;
   padding-inline-start: 0px;
+  grid-gap: 50px;
+  margin-top: 20px;
 }
 
 .game-type-wrapper > li {
@@ -348,22 +351,42 @@ button:focus {
   width: 100px;
   height: 50px;
   border: 2px solid black;
-  place-self: center;
   padding: 10px;
   padding-top: 20px;
   box-shadow: 10px 10px 5px 0px;
-  
+
+}
+
+.game-type-wrapper > li:first-child{
+  place-self: end;
 }
 
 .main-header {
   text-align: center;
+  margin-bottom: 60px;
+  font-size: 40px;
+}
+
+.title {
+  text-align: center;
+  margin-bottom: 0px;
 }
 
 .flex-decks {
   border: 2px solid black;
-  margin: 20px;
+  margin: 50px;
+  margin-bottom: 80px;
   box-shadow: 10px 10px 5px 0px;
   width: 200px;
   height: 300px;
+  display: grid;
+  grid-template-rows: 8fr 1fr;
+  grid-gap: 10px;
+  margin-top: 20px;
+  border-radius: 12px;  
+}
+
+.flex-decks > p{
+ text-align: center
 }
 </style>

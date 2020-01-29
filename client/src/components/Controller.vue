@@ -13,7 +13,7 @@
       <div v-if="start" class="player-one-scores">
         <p>Player 1 (Wins: {{playersRecords.playerTwoGamesWon}} Losses: {{playersRecords.playerTwoGamesLost}})</p>
       </div>
-      <div v-if="start" class="player-two-scores">
+      <div v-if="start" class="player-one-scores">
         <p>Player 2 (Wins: {{playersRecords.playerTwoGamesWon}} Losses: {{playersRecords.playerTwoGamesLost}})</p>
       </div>
     </div>
@@ -272,7 +272,7 @@ p.not-clickable {
 
 .player-one-scores {
 
-  background-color: orange;
+  color: #283D3B;
   place-self: center;
 }
 
@@ -295,11 +295,11 @@ p.not-clickable {
   place-self: center;
 }
 
-.property {
+.property >span {
   cursor: pointer;
   color: #1f1f1f;
   font-family: 'Raleway', sans-serif;
-  font-weight: bold;
+  font-weight: 600;
 }
 
 

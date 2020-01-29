@@ -3,7 +3,7 @@
     <div v-if="winningPlayer === 'player-one' || winningPlayer === 'bothCardsShowing' || winningPlayer === ''"
     class="card-up" >
       <br>
-      <p class="property">{{playerOneCards[0].name}}</p>
+      <p class="property"><span>{{playerOneCards[0].name}}</span></p>
       <img class="deck-image" :src="playerOneCards[0].imageURL" >
 
 

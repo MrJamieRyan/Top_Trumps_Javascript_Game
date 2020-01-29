@@ -55,11 +55,11 @@ export default {
 
         let currentCard = this.playerTwoCards[0].playableProperties
         Object.keys(currentCard).forEach(key => {
-          console.log('in for loop');
+          // console.log('in for loop');
           let property = currentCard[key];
           if( property > this.maxCardValues[0].playableProperties[key]) {
-            console.log('property', property);
-            console.log('max', this.maxCardValues[0].playableProperties[key]);
+            // console.log('property', property);
+            // console.log('max', this.maxCardValues[0].playableProperties[key]);
             this.maxCardValues[0].playableProperties[key] = property
           }
         })
@@ -70,11 +70,11 @@ export default {
       setTimeout(() => {
         let currentCard = this.playerTwoCards[0].playableProperties
         Object.keys(currentCard).forEach(key => {
-          console.log('in for loop');
+          // console.log('in for loop');
           let property = currentCard[key];
           if( property > this.maxCardValues[0].playableProperties[key]) {
-            console.log('property', property);
-            console.log('max', this.maxCardValues[0].playableProperties[key]);
+            // console.log('property', property);
+            // console.log('max', this.maxCardValues[0].playableProperties[key]);
             this.maxCardValues[0].playableProperties[key] = property
           }
           if( this.highestRatio < property / this.maxCardValues[0].playableProperties[key]) {
@@ -83,8 +83,8 @@ export default {
           }
         },
       )
-      console.log('ratio', this.highestRatio);
-      console.log('selected property', this.computerSelectedProperty);
+      // console.log('ratio', this.highestRatio);
+      // console.log('selected property', this.computerSelectedProperty);
       this.handleClick(this.computerSelectedProperty),
       this.highestRatio = 0
 
@@ -100,7 +100,7 @@ export default {
       setTimeout(() => {
         let currentCard = this.playerTwoCards[0].playableProperties
         Object.keys(currentCard).forEach(key => {
-          console.log('in for loop');
+          // console.log('in for loop');
           let property = currentCard[key];
 
           if( this.highestRatio < property / this.maxCardValues[0].playableProperties[key]) {
@@ -109,8 +109,8 @@ export default {
           }
         },
       )
-      console.log('ratio', this.highestRatio);
-      console.log('selected property', this.computerSelectedProperty);
+      // console.log('ratio', this.highestRatio);
+      // console.log('selected property', this.computerSelectedProperty);
       this.handleClick(this.computerSelectedProperty),
       this.highestRatio = 0
 
@@ -126,11 +126,11 @@ export default {
 
         let currentCard = this.playerTwoCards[0].playableProperties
         Object.keys(currentCard).forEach(key => {
-          console.log('in for loop');
+          // console.log('in for loop');
           let property = currentCard[key];
           if( property > this.maxCardValues[0].playableProperties[key]) {
-            console.log('property', property);
-            console.log('max', this.maxCardValues[0].playableProperties[key]);
+            // console.log('property', property);
+            // console.log('max', this.maxCardValues[0].playableProperties[key]);
             this.maxCardValues[0].playableProperties[key] = property
           }
         })

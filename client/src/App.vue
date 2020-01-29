@@ -1,12 +1,12 @@
 <template>
   <div>
-    <deck-selection v-if="!deckSelected" :decks="decks" />
-    <controller v-if="deckSelected" :cards="cards" />
+    <game-selection v-if="!gameOptionsSelected" :decks="decks" />
+    <controller v-if="gameOptionsSelected" :cards="cards" />
   </div>
 </template>
 
 <script>
-import DeckSelection from './components/DeckSelection.vue'
+import GameSelection from './components/GameSelection.vue'
 import CardDecksService from '../services/CardDecksService.js'
 import Controller from "./components/Controller.vue"
 import {eventBus} from "./main.js"
@@ -14,21 +14,22 @@ export default {
   name: "app",
   components: {
     "controller": Controller,
-    "deck-selection": DeckSelection
+    "game-selection": GameSelection
   },
   data() {
     return {
       decks: [],
       cards: [],
-      deckSelected: false
+      gameOptionsSelected: false,
+      gameType: ''
     }
   },
   mounted(){
     this.fetchDecks()
 
-    eventBus.$on('deck-selected', (payload) => {
-      this.cards = payload
-      this.deckSelected = true
+    eventBus.$on('game-options-selected', (payload) => {
+      this.cards = payload.deck
+      this.gameOptionsSelected = true
     })
   },
   methods: {

@@ -48,7 +48,7 @@ export default {
   mounted(){
     // other player has sent card across
     eventBus.$on('playerone-property-selected', (payload) => {
-      payload[2] = this.playerTwoCards[0]
+      payload.playerTwoCard = this.playerTwoCards[0]
       eventBus.$emit('both-cards-sent', payload)
       //after 3000ms when cards have been compared remove card from array
       //then update max card values with new top card
@@ -89,7 +89,7 @@ export default {
   methods: {
     //function for computer selecting a property and sending it on eventBus
     handleClick(property){
-      eventBus.$emit('playertwo-property-selected', [this.playerTwoCards[0], property] )
+      eventBus.$emit('playertwo-property-selected', {playerTwoCard: this.playerTwoCards[0], property: property} )
       setTimeout(() => {
         this.playerTwoCards.shift();
         this.updateMaxCardValues()

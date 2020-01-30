@@ -44,11 +44,12 @@
 
 <script>
 
-import PlayersService from "../../services/PlayersService.js"
 import { eventBus } from "../main.js";
-import PlayerComputer from "./PlayerComputer.vue";
+import PlayersService from "../../services/PlayersService.js";
 import PlayerOne from "./PlayerOne.vue";
 import PlayerTwo from "./PlayerTwo.vue";
+import PlayerComputer from "./PlayerComputer.vue";
+
 export default {
   name: "controller",
   props: ["cards", "gameType", "deckDescriptions"],
@@ -156,11 +157,13 @@ export default {
 
   methods: {
 
+    // gets player info from the database
     fetchPlayers() {
       PlayersService.getPlayers()
       .then(playersRecords => this.playersRecords = playersRecords[0])
     },
 
+    // sends updated player scores to the database
     handleUpdate(updatedScores){
       PlayersService.updatePlayers(updatedScores, this.playersRecords._id)
       .then(result => console.log(result))
@@ -175,6 +178,7 @@ export default {
       eventBus.$emit('main-menu')
     },
 
+    // splits cards and puts into players arrays
     splitCards(){
       const numberOfCardsPerPlayer = this.cards.length / 2
       for (let i = 0; i < numberOfCardsPerPlayer; i++) {
@@ -185,6 +189,7 @@ export default {
       }
     },
 
+    // uses a random function to shuffle cards
     shuffleCards(){
       for (let i = this.cards.length - 1; i > 0; i--) {
         const j = Math.floor(Math.random() * (i + 1));

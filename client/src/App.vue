@@ -28,6 +28,7 @@ export default {
   mounted(){
     this.fetchDecks()
 
+    // gets the game options and saves them so can be sent down as props
     eventBus.$on('game-options-selected', (payload) => {
       this.cards = payload.deck
       this.gameOptionsSelected = true
@@ -35,11 +36,13 @@ export default {
       this.deckDescriptions = payload.descriptions
     })
 
+    //receives emit from main menu button and goes back to deck selection
     eventBus.$on('main-menu', () => {
       this.gameOptionsSelected = false
     })
   },
   methods: {
+    //gets the decks from the DB
     fetchDecks() {
       CardDecksService.getDecks()
       .then(decks => this.decks = decks)

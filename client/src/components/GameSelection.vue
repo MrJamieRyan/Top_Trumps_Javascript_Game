@@ -33,6 +33,7 @@ export default {
     }
   },
   methods: {
+    // stores deck information in variables
     handleDeckSelect(index){
       this.deckSelected = this.decks[index].deck
       this.deckSelectedIndex = index
@@ -41,6 +42,8 @@ export default {
     handleGameSelect(gameType){
       this.gameType = gameType
     },
+
+    // emits the game options so can be sent up to App.vue and passed down
     handleGameOptions(){
       if(this.gameType && this.deckSelected){
         eventBus.$emit('game-options-selected',

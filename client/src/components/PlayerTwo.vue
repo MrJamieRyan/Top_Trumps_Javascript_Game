@@ -42,6 +42,10 @@ export default {
   },
   mounted(){
 
+    eventBus.$on('main-menu', () => {
+      this.playerOneCards = []
+    })
+
     eventBus.$on('playerone-property-selected', (payload) => {
       payload.playerTwoCard = this.playerTwoCards[0]
       eventBus.$emit('both-cards-sent', payload)
@@ -50,6 +54,7 @@ export default {
 
     eventBus.$on('player-two-wins', (payload) => {
       setTimeout(() => {
+        console.log(payload);
         for(let card of payload){
           this.playerTwoCards.push(card)
         }

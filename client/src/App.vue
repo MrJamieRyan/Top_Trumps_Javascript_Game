@@ -39,6 +39,11 @@ export default {
     //receives emit from main menu button and goes back to deck selection
     eventBus.$on('main-menu', () => {
       this.gameOptionsSelected = false
+      this.cards = []
+      this.deckDescriptions = []
+      this.gameType = ''
+      this.decks = []
+      this.fetchDecks()
     })
   },
   methods: {

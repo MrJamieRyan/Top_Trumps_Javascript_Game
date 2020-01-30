@@ -47,6 +47,10 @@ export default {
   },
   mounted(){
 
+    eventBus.$on('main-menu', () => {
+      this.playerOneCards = []
+    })
+
     eventBus.$on('playertwo-property-selected', (payload) => {
       payload.playerOneCard = this.playerOneCards[0]
       eventBus.$emit('both-cards-sent', payload)

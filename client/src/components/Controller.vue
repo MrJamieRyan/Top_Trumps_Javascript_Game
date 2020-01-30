@@ -78,7 +78,16 @@ export default {
 
     }
   },
-
+  beforeDestroy() {
+    eventBus.$off('both-cards-sent');
+    eventBus.$off('player-one-loses-game');
+    eventBus.$off('player-two-loses-game');
+    eventBus.$off('player-one-wins');
+    eventBus.$off('playertwo-property-selected');
+    eventBus.$off('playerone-property-selected');
+    eventBus.$off('player-two-wins');
+    eventBus.$off('round-drawn');
+  },
   mounted(){
     // gets player data and shuffles and deals cards
     this.fetchPlayers()
@@ -91,6 +100,7 @@ export default {
       this.cardsUpForGrabs.unshift(payload.playerTwoCard)
       this.cardsUpForGrabs.unshift(payload.playerOneCard)
       this.selectedProperty = payload.property
+
       //if statement to see if player one has won
       if(this.cardsUpForGrabs[0].playableProperties[this.selectedProperty] > this.cardsUpForGrabs[1].playableProperties[this.selectedProperty]){
         eventBus.$emit('player-one-wins', this.cardsUpForGrabs)
@@ -176,6 +186,12 @@ export default {
 
     mainMenu() {
       eventBus.$emit('main-menu')
+      this.playerOneCardsDealt= []
+      this.playerTwoCardsDealt= []
+      this.start= false
+      this.cardsUpForGrabs= []
+      this.selectedProperty= ''
+      this.winningPlayer= ''
     },
 
     // splits cards and puts into players arrays

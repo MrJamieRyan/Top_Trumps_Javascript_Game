@@ -1,13 +1,32 @@
 <template>
   <div>
-    <div class="start-game"> <button class="start-button" v-on:click="startGame">Start Game</button> </div>
+    <div class="start-game">
+      <button v-if="!start" class="start-button" v-on:click="startGame">Start Game</button>
+      <button v-if="start" class="start-button" v-on:click="mainMenu" >Main Menu</button>
+    </div>
     <div class="winning-statement">
       <h1>{{winningPlayerStatement}}</h1>
     </div>
     <div class="players-wrapper">
-      <player-one v-if="start" :cards="playerOneCardsDealt" :winningPlayer="winningPlayer" :selectedProperty="selectedProperty"/>
-      <player-two v-if="start && gameType === 'player-player'" :cards="playerTwoCardsDealt" :winningPlayer="winningPlayer" :selectedProperty="selectedProperty"/>
-      <player-computer v-if="start && gameType === 'player-computer'" :cards="playerTwoCardsDealt" :winningPlayer="winningPlayer" :selectedProperty="selectedProperty"/>
+
+      <player-one v-if="start"
+      :cards="playerOneCardsDealt"
+      :winningPlayer="winningPlayer"
+      :selectedProperty="selectedProperty"
+      :deckDescriptions="deckDescriptions"/>
+
+      <player-two v-if="start && gameType === 'player-player'"
+      :cards="playerTwoCardsDealt"
+      :winningPlayer="winningPlayer"
+      :selectedProperty="selectedProperty"
+      :deckDescriptions="deckDescriptions"/>
+
+      <player-computer v-if="start && gameType === 'player-computer'"
+      :cards="playerTwoCardsDealt"
+      :winningPlayer="winningPlayer"
+      :selectedProperty="selectedProperty"
+      :deckDescriptions="deckDescriptions"/>
+
     </div>
     <div class="scores">
       <div v-if="start" class="player-one-scores">
@@ -32,7 +51,7 @@ import PlayerOne from "./PlayerOne.vue";
 import PlayerTwo from "./PlayerTwo.vue";
 export default {
   name: "controller",
-  props: ["cards", "gameType"],
+  props: ["cards", "gameType", "deckDescriptions"],
   components: {
     "player-one": PlayerOne,
     "player-two": PlayerTwo,
@@ -60,16 +79,18 @@ export default {
   },
 
   mounted(){
+    // gets player data and shuffles and deals cards
     this.fetchPlayers()
     this.shuffleCards()
     this.splitCards()
 
+    //listener for when a property has been selected and both cards sent up
+    //puts them into a 'pot' and saves selected comparison property
     eventBus.$on('both-cards-sent', (payload) => {
       this.cardsUpForGrabs.unshift(payload.playerTwoCard)
       this.cardsUpForGrabs.unshift(payload.playerOneCard)
       this.selectedProperty = payload.property
-
-
+      //if statement to see if player one has won
       if(this.cardsUpForGrabs[0].playableProperties[this.selectedProperty] > this.cardsUpForGrabs[1].playableProperties[this.selectedProperty]){
         eventBus.$emit('player-one-wins', this.cardsUpForGrabs)
         this.cardsUpForGrabs = []
@@ -79,9 +100,10 @@ export default {
           this.winningPlayerStatement = ''
           this.selectedProperty = ''}, 3000)
       }
-
+      // else if statement for the draw
       else if(this.cardsUpForGrabs[0].playableProperties[this.selectedProperty] === this.cardsUpForGrabs[1].playableProperties[this.selectedProperty]){
         let lastWinningPlayer = this.winningPlayer
+        // emits draw and the last winning player for computer player
         eventBus.$emit('round-drawn', lastWinningPlayer)
         this.winningPlayer = 'bothCardsShowing'
         this.winningPlayerStatement = "It's a draw!"
@@ -89,9 +111,8 @@ export default {
           this.winningPlayerStatement = ''
           this.selectedProperty = ''}, 3000)
       }
-
+      //else statement for player two winning
       else
-
       {
         eventBus.$emit('player-two-wins', this.cardsUpForGrabs)
         this.cardsUpForGrabs = []
@@ -103,7 +124,7 @@ export default {
       }
 
     } )
-
+    //listener for when player one has no more cards left
     eventBus.$on('player-one-loses-game', () => {
       this.gameWinner = 'Player Two Wins The Game!'
       this.start = false
@@ -117,7 +138,7 @@ export default {
       this.shuffleCards()
       this.splitCards()
     })
-
+    //listener for when player two has no more cards left
     eventBus.$on('player-two-loses-game', () => {
       this.gameWinner = 'Player One Wins The Game!'
       this.start = false
@@ -139,7 +160,7 @@ export default {
       PlayersService.getPlayers()
       .then(playersRecords => this.playersRecords = playersRecords[0])
     },
-    
+
     handleUpdate(updatedScores){
       PlayersService.updatePlayers(updatedScores, this.playersRecords._id)
       .then(result => console.log(result))
@@ -148,7 +169,10 @@ export default {
     startGame() {
       this.start = true
       this.gameWinner = ''
+    },
 
+    mainMenu() {
+      eventBus.$emit('main-menu')
     },
 
     splitCards(){

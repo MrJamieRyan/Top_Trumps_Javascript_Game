@@ -28,20 +28,27 @@ export default {
     return{
       gameType: null,
       deckSelected: null,
-      deckSelectedIndex: null
+      deckSelectedIndex: null,
+      deckDescriptions: null
     }
   },
   methods: {
     handleDeckSelect(index){
       this.deckSelected = this.decks[index].deck
       this.deckSelectedIndex = index
+      this.deckDescriptions = this.decks[index].descriptions
     },
     handleGameSelect(gameType){
       this.gameType = gameType
     },
     handleGameOptions(){
       if(this.gameType && this.deckSelected){
-        eventBus.$emit('game-options-selected', { gameType: this.gameType, deck: this.deckSelected })
+        eventBus.$emit('game-options-selected',
+        {
+          gameType: this.gameType,
+          deck: this.deckSelected,
+          descriptions: this.deckDescriptions
+       })
       }
     }
   }

@@ -9,10 +9,9 @@
 
       <p
       :class="selectedProperty === key ? 'selected' : 'property' "
-
       v-for="(value, key) in playerTwoCards[0].playableProperties"
       >
-        <span>{{key}}: {{value}}</span>
+        <span>{{deckDescriptions[key]}}: {{value}}</span>
       </p>
     </div>
     <div
@@ -29,7 +28,7 @@
 import {eventBus} from "../main.js"
 export default {
   name: 'player-computer',
-  props: ['cards', 'winningPlayer', 'selectedProperty'],
+  props: ['cards', 'winningPlayer', 'selectedProperty', 'deckDescriptions'],
   data(){
     return {
       playerTwoCards: this.cards.slice(),

@@ -1,7 +1,7 @@
 <template>
   <div>
     <game-selection v-if="!gameOptionsSelected" :decks="decks" />
-    <controller v-if="gameOptionsSelected" :cards="cards" :gameType="gameType" />
+    <controller v-if="gameOptionsSelected" :cards="cards" :gameType="gameType" :deckDescriptions="deckDescriptions" />
   </div>
 </template>
 
@@ -20,6 +20,7 @@ export default {
     return {
       decks: [],
       cards: [],
+      deckDescriptions: [],
       gameOptionsSelected: false,
       gameType: ''
     }
@@ -31,6 +32,11 @@ export default {
       this.cards = payload.deck
       this.gameOptionsSelected = true
       this.gameType = payload.gameType
+      this.deckDescriptions = payload.descriptions
+    })
+
+    eventBus.$on('main-menu', () => {
+      this.gameOptionsSelected = false
     })
   },
   methods: {

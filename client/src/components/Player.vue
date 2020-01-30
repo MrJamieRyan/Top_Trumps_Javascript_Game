@@ -3,12 +3,12 @@
     <div v-if="winningPlayer === 'player-one' || winningPlayer === 'bothCardsShowing' || winningPlayer === ''"
     class="card-up" >
       <br>
-      <p class="property"><span>{{playerOneCards[0].name}}</span></p>
-      <img class="deck-image" :src="playerOneCards[0].imageURL" >
+      <p class="property"><span>{{playerCards[0].name}}</span></p>
+      <img class="deck-image" :src="playerCards[0].imageURL" >
       <p :class="selectedProperty === key ? 'selected' : 'property' "
       v-on:click="handleClick(key)"
-      v-for="(value, key) in playerOneCards[0].playableProperties">
-        <span>{{deckDescriptions[key]}}: {{value}}</span>
+      v-for="(value, key) in playerCards[0].playableProperties">
+        <span>{{key}}: {{value}}</span>
       </p>
     </div>
     <div
@@ -16,7 +16,7 @@
     class="card-down">
     </div>
     <div class="cards-left">
-      <p>Cards In Deck: {{this.playerOneCards.length}}</p>
+      <p>Cards In Deck: {{this.playerCards.length}}</p>
     </div>
   </div>
 </template>
@@ -25,38 +25,40 @@
 import {eventBus} from "../main.js"
 export default {
   name: 'player-one',
-  props: ['cards', 'winningPlayer', 'selectedProperty', 'deckDescriptions'],
+  props: ['cards', 'winningPlayer', 'selectedProperty', 'playerString'],
   data(){
     return {
-      playerOneCards: this.cards.slice()
+      playerCards: this.cards.slice()
+      playerString: this.playerString
     }
   },
   watch:{
-    playerOneCards: function () {
-      if(this.playerOneCards.length === 0){
-        eventBus.$emit('player-one-loses-game')
+    playerCards: function () {
+      if(this.playerCards.length === 0){
+        eventBus.$emit(`${playerString}-loses-game`)
       }
     }
   },
   methods: {
     // method for emitting that a property has been selected
     handleClick(property){
-      eventBus.$emit('playerone-property-selected', {playerOneCard: this.playerOneCards[0], property: property} )
-      setTimeout(() => this.playerOneCards.shift(), 3001)
+      eventBus.$emit(`${playerString}-property-selected`, {playerOneCard: this.playerCards[0], property: property} )
+      setTimeout(() => this.playerCards.shift(), 3001)
     }
   },
   mounted(){
 
     eventBus.$on('playertwo-property-selected', (payload) => {
-      payload.playerOneCard = this.playerOneCards[0]
+
+      payload.playerOneCard = this.playerCards[0]
       eventBus.$emit('both-cards-sent', payload)
-      setTimeout(() => this.playerOneCards.shift(), 3001)
+      setTimeout(() => this.playerCards.shift(), 3001)
     })
 
     eventBus.$on('player-one-wins', (payload) => {
       setTimeout(() => {
         for(let card of payload){
-          this.playerOneCards.push(card)
+          this.playerCards.push(card)
         }
       }, 3000)
     })
